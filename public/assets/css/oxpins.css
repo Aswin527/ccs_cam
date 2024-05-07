@@ -40,7 +40,6 @@
 }
 .main-menu__logo img {
   
-  margin-top: 32px;
 }
 .row {
   --bs-gutter-x: 30px;
@@ -538,6 +537,13 @@ ul {
   position: relative;
 }
 
+.top-ribbon{
+  background-color: #00715D;
+  height: 4rem;
+  width: 100%;
+}
+
+
 .main-menu {
   position: relative;
   display: block;
@@ -705,6 +711,7 @@ ul {
 .main-menu__right-top-right {
   display: flex;
   align-items: center;
+  margin-left: 15px;
 }
 
 .main-menu__right-top-address {
@@ -750,7 +757,7 @@ ul {
   position: relative;
   display: inline-block;
   font-size: 25px;
-  color: var(--oxpins-base);
+  color: var(--oxpins-white);
 }
 
 .main-menu__right-top-address-list li:last-child .icon span {
@@ -765,17 +772,19 @@ ul {
   font-size: 12px;
   font-weight: 600;
   line-height: 16px;
+  color: var(--oxpins-white);
 }
 
 .main-menu__right-top-address-list li .content h5 {
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 20px;
   font-family: var(--oxpins-font);
+  color: var(--oxpins-white);
 }
 
 .main-menu__right-top-address-list li .content h5 a {
-  color: var(--oxpins-black);
+  color: var(--oxpins-white);
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
 }
@@ -801,7 +810,7 @@ ul {
   -webkit-box-pack: center;
   justify-content: center;
   text-align: center;
-  color: var(--oxpins-black);
+  color: var(--oxpins-white);
   font-size: 14px;
   background-color: var(--oxpins-extra);
   border-radius: 50%;
@@ -856,13 +865,14 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--oxpins-base);
+  
   padding-left: 50px;
   border-top-left-radius: 15px;
 }
 
 .main-menu__main-menu-box {
   display: block;
+  
 }
 
 .main-menu__main-menu-content-box {
@@ -1041,7 +1051,7 @@ ul {
 
 .main-menu .main-menu__list>li>a,
 .stricky-header .main-menu__list>li>a {
-  font-size: 11px;
+  font-size: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1067,7 +1077,7 @@ ul {
 .stricky-header .main-menu__list>li.current-menu-item>a,
 .stricky-header .main-menu__list>li.current-menu-page>a,
 .stricky-header .main-menu__list>li:hover>a {
-  color: var(--oxpins-white);
+  color: var(--oxpins-primary);
 }
 
 .main-menu .main-menu__list>li>ul,
@@ -2522,6 +2532,45 @@ body.locked .page-wrapper {
   z-index: 91;
 }
 
+.swiper {
+  height: 600px;
+}
+
+
+.swiper-slide {
+  font-size: 18px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 60px;
+}
+
+.parallax-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.swiper-slide .title {
+  font-size: 41px;
+  font-weight: 300;
+}
+
+.swiper-slide .subtitle {
+  font-size: 21px;
+}
+
+.swiper-slide .text {
+  font-size: 14px;
+  max-width: 400px;
+  line-height: 1.3;
+}
+
 .main-slider .swiper-slide {
   position: relative;
   background-color: var(--oxpins-black);
@@ -2537,9 +2586,9 @@ body.locked .page-wrapper {
 .main-slider .image-layer {
   position: absolute;
   top: 0;
-  right: -20px;
+  /*right: -20px;*/
   bottom: 0;
-  width: 50%;
+  width: 100%;
   /*mix-blend-mode: luminosity;*/
   background-repeat: no-repeat;
   background-size: cover;

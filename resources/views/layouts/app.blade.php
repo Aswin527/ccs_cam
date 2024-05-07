@@ -58,28 +58,11 @@
  <div class="page-wrapper">
  <header class="main-header">
             <nav class="main-menu">
-                <div class="main-menu__wrapper">
-                    <div class="main-menu__wrapper-inner">
-                        <div class="main-menu__left">
-                            <div class="main-menu__logo">
-                                <a href="/"><img width="270px" src="/assets/images/logo.jpg" alt=""></a>
-                            </div>
+                <div class="top-ribbon">
+                <div class="main-menu__left">
                            
-                        </div>
-                        <div class="main-menu__right">
-                            <div class="main-menu__right-top">
-                                <div class="main-menu__right-top-left">
-                                    <div class="main-menu__volunteers">
-                                        <!--<div class="main-menu__volunteers-icon">-->
-                                        <!--    <img src="assets/images/icon/main-menu-heart-icon.png" alt="">-->
-                                        <!--</div>-->
-                                        <!--<div class="main-menu__volunteers-text-box">-->
-                                        <!--    <p class="main-menu__volunteers-text"><a href="/">Become-->
-                                        <!--            a-->
-                                        <!--            <span>volunteers</span></a></p>-->
-                                        <!--</div>-->
-                                    </div>
-                                </div>
+                </div>
+                <div class="main-menu__right-top">
                                 <div class="main-menu__right-top-right">
                                     <div class="main-menu__right-top-address">
                                         <ul class="list-unstyled main-menu__right-top-address-list">
@@ -122,46 +105,33 @@
                                     </div>
                                 </div>
                             </div>
+                </div>
+                <div class="main-menu__wrapper">
+                    <div class="main-menu__wrapper-inner">
+                        <div class="main-menu__left">
+                            <div class="main-menu__logo">
+                                <a href="/"><img width="80px" src="/assets/images/ccs-small-logo.jpg" alt=""></a>
+                                <h5>Cambodian Chemical Society</h5>
+                            </div>
+                           
+                        </div>
+                        <div class="main-menu__right">
+                            
                             <div class="main-menu__right-bottom">
                                 <div class="main-menu__main-menu-box">
                                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                     <ul class="main-menu__list">
-                                        <li class="dropdown current">
-                                            <a href="/">Home Page</a>
-                                           
-                                        </li>
-                                        <li class="">
-                                            <a href="/about-us">About CCS</a>
-                                           
-                                        </li>
-                                        <li >
-                                            <a href="/publications">Publications</a>
-                                            
-                                        </li>
-                                        <li class="">
-                                            <a href="/membership">Membership</a>
-                                            
-                                        </li>
-                                        <li class="">
-                                            <a href="/all-events">Events</a>
-                                            
-                                        </li>
-                                        <li class="">
-                                            <a href="/our-partners">Our Partner</a>
-                                            
-                                        </li>
-                                        <li class="">
-                                            <a href="/all-video">Video Gallery</a>
-                                            
-                                        </li>
-                                       
-                                        
-                                        <li>
-                                            <a href="/contact">Contact</a>
-                                        </li>
+                                        <li class=""><a href="/">Home</a> </li>
+                                        <li class=""><a href="/about-us">About</a></li>
+                                        <li ><a href="/publications">Publications</a></li>
+                                        <li class=""><a href="/membership">Membership</a></li>
+                                        <li class=""><a href="/all-events">Events</a></li>
+                                        <li class=""><a href="/our-partners">Our Partner</a></li>
+                                        <li class=""><a href="/all-video">Video Gallery</a></li>
+                                       <li><a href="/contact">Contact</a></li>
                                     </ul>
                                 </div>
-                                <div class="main-menu__main-menu-content-box">
+                                <!-- <div class="main-menu__main-menu-content-box">
                                     <div class="main-menu__search-cat-btn-box">
                                        
                                         <div class="main-menu__btn-box">
@@ -185,7 +155,7 @@
                                        
                                     </div>
                                     
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

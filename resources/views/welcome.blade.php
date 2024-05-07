@@ -41,32 +41,12 @@
                 "autoplay": {
                 "delay": 5000
                 }}'>
+                <div class="swiper">
+                
                 <div class="swiper-wrapper">
                    @foreach($slider as $slider)
                     <div class="swiper-slide">
-                        <div class="image-layer"
-                            style="background-image: url(images/{{$slider->image}});"></div>
-                        <!-- /.image-layer -->
-
-                        <div class="main-slider-shape-1"
-                            style="background-image: url(assets/images/shapes/main-slider-shape-1.jpg);"></div>
-                        <div class="main-slider-shape-2 float-bob-x">
-                            <img src="/assets/images/bg-tample.jpeg" alt="">
-                        </div>
-
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-8">
-                                    <div class="main-slider__content">
-                                        <p class="main-slider__sub-title">{{$slider->title}}</p>
-                                        <h2 class="main-slider__title">{{$slider->subtitle}}</h2>
-                                        <div class="main-slider__btn-box">
-                                            <a href="/" class="thm-btn main-slider__btn"> Discover more</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="parallax-bg" style="background-image: url(images/{{$slider->image}});" data-swiper-parallax="-23%"></div>        
                     </div>
                    @endforeach
                    
@@ -74,7 +54,7 @@
                    
 
                 </div>
-
+                </div>
                 <!-- If we need navigation buttons -->
                 <div class="main-slider__nav">
                     <div class="swiper-button-prev" id="main-slider__swiper-button-next">
