@@ -187,7 +187,7 @@ h4,
 h5,
 h6 {
   color: var(--oxpins-black);
-  font-family: var(--oxpins-font-two);
+  /* font-family: var(--oxpins-font-two); */
   margin: 0;
 }
 
@@ -280,6 +280,36 @@ ul {
   opacity: 0.4;
   z-index: -1;
 }
+
+/* Image Slider*/
+.slider_img{
+  height: 530px;
+  width: 100%;
+}
+
+.carousel-caption{
+  position: absolute;
+  right: 15%;
+  bottom: 1.25rem;
+  left: 15%;
+  padding-top: 1.25rem;
+  padding-bottom: 5rem;
+  color: #fff;
+  text-align: left;
+}
+
+.carousel-caption h1{
+  color: var(--oxpins-white);
+}
+
+.carousel-caption p{
+  color: var(--oxpins-white);
+  font-size: 3rem;
+  padding-top: 8px;
+}
+
+/*-- Slider End --*/
+
 
 /*--------------------------------------------------------------
 # Custom Cursor
@@ -384,7 +414,7 @@ ul {
   font-weight: 700;
   line-height: 24px;
   margin-bottom: 10px;
-  font-family: var(--oxpins-font-three);
+  /* font-family: var(--oxpins-font-three); */
 }
 
 .section-title__title {
@@ -538,11 +568,59 @@ ul {
 }
 
 .top-ribbon{
+  display: flex;
   background-color: #00715D;
-  height: 4rem;
+  height: 3rem;
   width: 100%;
 }
 
+.top-ribbon__left{
+  display: flex;
+  padding-top: 6px;
+  padding-left: 20px;
+  width: 80%;
+}
+
+.top-ribbon__right-top{
+  align-items: flex-end;
+  width: 20%;
+}
+
+.donation_btn_div{
+  background-color: var(--oxpins-primary);
+  height: 100%;
+  width: 35%;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.login_btn_div{
+  
+  height: 100%;
+  width: 30%;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+.login_btn:hover {
+  background-color: var(--oxpins-black);
+  color: var(--oxpins-white);
+}
+
+.login_btn{
+  color: #fff;
+  font-size: 12px;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
 
 .main-menu {
   position: relative;
@@ -554,6 +632,8 @@ ul {
   display: block;
   padding-left: 60px;
   padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .main-menu__wrapper-inner {
@@ -565,13 +645,16 @@ ul {
 .main-menu__left {
   position: relative;
   display: block;
-  width: 9%;
-  margin-right: 157px;
+  width: 30%;
 }
 
 .main-menu__logo {
-  display: block;
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  align-items: center;
 }
+
 
 .main-menu__logo img {
   image-rendering: -moz-crisp-edges;
@@ -708,11 +791,14 @@ ul {
   height: 1px;
 }
 
+
+
 .main-menu__right-top-right {
   display: flex;
   align-items: center;
   margin-left: 15px;
 }
+
 
 .main-menu__right-top-address {
   display: block;
@@ -756,12 +842,12 @@ ul {
 .main-menu__right-top-address-list li .icon span {
   position: relative;
   display: inline-block;
-  font-size: 25px;
+  font-size: 20px;
   color: var(--oxpins-white);
 }
 
 .main-menu__right-top-address-list li:last-child .icon span {
-  font-size: 28px;
+  font-size: 20px;
 }
 
 .main-menu__right-top-address-list li .content {
@@ -769,14 +855,14 @@ ul {
 }
 
 .main-menu__right-top-address-list li .content p {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
   line-height: 16px;
   color: var(--oxpins-white);
 }
 
 .main-menu__right-top-address-list li .content h5 {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   line-height: 20px;
   font-family: var(--oxpins-font);
@@ -938,19 +1024,19 @@ ul {
 }
 
 .main-menu__btn {
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--oxpins-black);
   background-color: var(--oxpins-primary);
-  padding-left: 50px;
-  padding-top: 17px;
-  padding-bottom: 17px;
   position: relative;
   display: flex;
   align-items: center;
   text-transform: uppercase;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
 }
 .main-menu__btns {
   font-size: 14px;
@@ -8139,7 +8225,6 @@ body.locked .page-wrapper {
 .page-header__inner {
   position: relative;
   display: block;
-  text-align: center;
   z-index: 15;
 }
 
@@ -8150,6 +8235,42 @@ body.locked .page-wrapper {
   margin-bottom: 6px;
   font-weight: 900;
   letter-spacing: -0.04em;
+}
+
+
+
+.container-aboutus {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Adjust the height as needed */
+  background: url('your-background-image.jpg') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--oxpins-base); /* Adjust transparency */
+  clip-path: polygon(0 0, 70% 0%, 0 170%, 0 0%); /* Adjust points for diagonal cut */
+}
+
+.page-header__inner {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  color: #333; /* Text color */
+  width: 80%;
+}
+
+
+.page-header__inner p{  
+  color: #fff; /* Text color */
 }
 
 .thm-breadcrumb {

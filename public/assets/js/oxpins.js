@@ -441,6 +441,7 @@
     }
   }
 
+
   if ($(".main-menu__list").length) {
     // dynamic current class
     let mainNavUL = $(".main-menu__list");

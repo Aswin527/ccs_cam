@@ -4,17 +4,18 @@
 
 @section('content')
 <?php $setting = DB::table('settings')->where('id',1)->first();?>
-<section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/bg_about-us.jpg)">
-            </div>
-            <div class="container">
+<section class="">
+            
+            <div class="container-aboutus">
+                <div class="overlay"></div>
                 <div class="page-header__inner">
-                    <ul class="thm-breadcrumb list-unstyled">
+                    <!-- <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="/">Home</a></li>
                         <li><span>/</span></li>
                         <li class="active">Pages</li>
-                    </ul>
-                    <h2>About us</h2>
+                    </ul> -->
+                    <h2>About CCS</h2>
+                    <p>As a non-profit scientific organization</br> with more than 140 years’ experience, we are a champion for chemistry, </br>its practitioners and our global community of members.</p>
                 </div>
             </div>
 </section>

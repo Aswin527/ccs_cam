@@ -59,52 +59,49 @@
  <header class="main-header">
             <nav class="main-menu">
                 <div class="top-ribbon">
-                <div class="main-menu__left">
-                           
-                </div>
-                <div class="main-menu__right-top">
-                                <div class="main-menu__right-top-right">
-                                    <div class="main-menu__right-top-address">
-                                        <ul class="list-unstyled main-menu__right-top-address-list">
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-phone-call"></span>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Helpline</p>
-                                                    <h5><a href="#">{{$setting->phone}} </a>
-                                                    </h5>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-message"></span>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Send email</p>
-                                                    <h5><a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
-                                                    </h5>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="icon">
-                                                    <span class="icon-location"></span>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Address</p>
-                                                    <h5>{{$setting->address}}</h5>
-                                                </div>
-                                            </li>
-                                        </ul>
+                    <div class="top-ribbon__left">
+                        <div class="main-menu__right-top-address">
+                            <ul class="list-unstyled main-menu__right-top-address-list">
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-phone-call"></span>
                                     </div>
-                                    <div class="main-menu__right-top-social">
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-facebook"></i></a>
-                                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <div class="content">
+                                        <p>Helpline</p>
+                                        <h5><a href="#">{{$setting->phone}} </a>
+                                        </h5>
                                     </div>
-                                </div>
-                            </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-message"></span>
+                                    </div>
+                                    <div class="content">
+                                        <p>Send email</p>
+                                        <h5><a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
+                                        </h5>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-location"></span>
+                                    </div>
+                                    <div class="content">
+                                        <p>Address</p>
+                                        <h5>{{$setting->address}}</h5>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>  
+                    </div>
+                    <div class="top-ribbon__right-top">
+                        <div class="login_btn_div">
+                            <a href="/login" class="login_btn"><span class="fas fa-sign-in"></span>Login</a>
+                        </div>
+                        <div class="donation_btn_div">
+                            <a href="/" class="main-menu__btn"> <span class="fa fa-heart"></span>Donate Now</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="main-menu__wrapper">
                     <div class="main-menu__wrapper-inner">
@@ -131,31 +128,6 @@
                                        <li><a href="/contact">Contact</a></li>
                                     </ul>
                                 </div>
-                                <!-- <div class="main-menu__main-menu-content-box">
-                                    <div class="main-menu__search-cat-btn-box">
-                                       
-                                        <div class="main-menu__btn-box">
-                                            <a href="/" class="main-menu__btn"> <span
-                                                    class="fa fa-heart"></span>Donate
-                                                  now
-                                                </a>
-                                        </div>
-                                       
-                                    </div>
-                                    
-                                </div>
-                                 <div class="main-menu__main-menu-content-box" style="background-color:#000;color:#fff;">
-                                    <div class="main-menu__search-cat-btn-box">
-                                       
-                                        <div class="main-menu__btn-box">
-                                            <a href="/login" class="main-menu__btns" style="color:#fff;"> <span
-                                                    class="fa fa-heart"></span>Login
-                                                </a>
-                                        </div>
-                                       
-                                    </div>
-                                    
-                                </div> -->
                             </div>
                         </div>
                     </div>

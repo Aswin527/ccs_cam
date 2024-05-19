@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('meta_title','')
+
+@section('title','Cambodian Chemical Society')
 @section('content')
 <style>
 @media screen and (max-width: 767px) {
@@ -21,55 +22,112 @@
 }
    
 </style>
+
         <div class="stricky-header stricked-menu main-menu">
             <div class="sticky-header__content"></div>
         </div>
 
         <!--Main Slider Start-->
             <section class="main-slider clearfix">
-            <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-                "effect": "fade",
-                "pagination": {
-                "el": "#main-slider-pagination",
-                "type": "bullets",
-                "clickable": true
-                },
-                "navigation": {
-                "nextEl": "#main-slider__swiper-button-next",
-                "prevEl": "#main-slider__swiper-button-prev"
-                },
-                "autoplay": {
-                "delay": 5000
-                }}'>
-                <div class="swiper">
+            <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 
-                <div class="swiper-wrapper">
-                   @foreach($slider as $slider)
-                    <div class="swiper-slide">
-                        <div class="parallax-bg" style="background-image: url(images/{{$slider->image}});" data-swiper-parallax="-23%"></div>        
+                <div class="carousel-inner">
+                    @foreach ($slider as $key => $sliderItem)
+                    <div class="carousel-item {{ $key == 0 ? 'active':'' }}">
+                    <img src="images/{{$sliderItem->image}}" class="slider_img d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>{{$sliderItem->title}}</h1>
+                        <p>{{$sliderItem->subtitle}}</p>
                     </div>
-                   @endforeach
-                   
-
-                   
-
-                </div>
-                </div>
-                <!-- If we need navigation buttons -->
-                <div class="main-slider__nav">
-                    <div class="swiper-button-prev" id="main-slider__swiper-button-next">
-                        <i class="icon-left-arrow"></i>
                     </div>
-                    <div class="swiper-button-next" id="main-slider__swiper-button-prev">
-                        <i class="icon-right-arrow"></i>
-                    </div>
+                    @endforeach
                 </div>
-
-            </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
         </section>
         <!--Main Slider End-->
         
-        
+        <!--About One Start-->
+        <section class="about-one">
+            <div class="about-one__shape-box-1">
+                <div class="about-one__shape-1"
+                    style="background-image: url(assets/images/shapes/about-one-shape-1.png);"></div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="about-one__left">
+                            <div class="about-one__img-box wow slideInLeft" data-wow-delay="100ms"
+                                data-wow-duration="2500ms">
+                                <div class="about-one__img">
+                                    <img src="images/{{$setting->about_us_image}}" alt="">
+                                </div>
+                                <div class="about-one__img-border"></div>
+                                <div class="about-one__curved-circle-box">
+                                    <div class="curved-circle">
+                                        <span class="curved-circle--item">
+                                            25 YEARS EXPERIENCE COMBODIAN CHEMICAL SOCIETY
+                                        </span>
+                                    </div><!-- /.curved-circle -->
+                                    <div class="about-one__curved-circle-icon">
+                                        <img src="assets/images/ccs-small-logo.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="about-one__shape-2 zoom-fade">
+                                    <img src="assets/images/shapes/about-one-shape-2.png" alt="">
+                                </div>
+                                <div class="about-one__shape-3 float-bob-y">
+                                    <img src="assets/images/shapes/about-one-shape-3.png" alt="">
+                                </div>
+                                <div class="about-one__shape-4 zoominout">
+                                    <img src="assets/images/shapes/about-one-shape-4.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="about-one__right">
+                            <div class="section-title text-left">
+                                <span class="section-title__tagline">{{$setting->aboutus_title}}</span>
+                                <!--<h2 class="section-title__title">Helping each other can make world better</h2>-->
+                            </div>
+                            <p class="about-one__text">{{$setting->aboutus_description}} </p>
+                        
+                            <ul class="list-unstyled about-one__points">
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-volunteer"></span>
+                                    </div>
+                                    <div class="text">
+                                        <h5><a href="/about-us">{{$setting->our_mission}}</a></h5>
+                                        <p>{{Str::of($setting->our_mission_description)->limit(80);}}</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <span class="icon-solidarity"></span>
+                                    </div>
+                                    <div class="text">
+                                        <h5><a href="/about-us">{{$setting->our_vission}}</a></h5>
+                                        <p>{{Str::of($setting->our_vission_description)->limit(80);}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="/about-us" class="thm-btn about-one__btn">Discover More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--About One End-->
+
         
         
         <!--Events Page Start-->
@@ -200,88 +258,6 @@
         </section>
         <!--Events Page End-->
         
-        
-       
-        
-        
-        
-        
-        
-
-        <!--About One Start-->
-           <section class="about-one">
-            <div class="about-one__shape-box-1">
-                <div class="about-one__shape-1"
-                    style="background-image: url(assets/images/shapes/about-one-shape-1.png);"></div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6">
-                        <div class="about-one__left">
-                            <div class="about-one__img-box wow slideInLeft" data-wow-delay="100ms"
-                                data-wow-duration="2500ms">
-                                <div class="about-one__img">
-                                    <img src="images/{{$setting->about_us_image}}" alt="">
-                                </div>
-                                <div class="about-one__img-border"></div>
-                                <div class="about-one__curved-circle-box">
-                                    <div class="curved-circle">
-                                        <span class="curved-circle--item">
-                                            25 YEARS EXPERIENCE COMBODIAN CHEMICAL SOCIETY
-                                        </span>
-                                    </div><!-- /.curved-circle -->
-                                    <div class="about-one__curved-circle-icon">
-                                        <img src="assets/images/ccs-small-logo.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="about-one__shape-2 zoom-fade">
-                                    <img src="assets/images/shapes/about-one-shape-2.png" alt="">
-                                </div>
-                                <div class="about-one__shape-3 float-bob-y">
-                                    <img src="assets/images/shapes/about-one-shape-3.png" alt="">
-                                </div>
-                                <div class="about-one__shape-4 zoominout">
-                                    <img src="assets/images/shapes/about-one-shape-4.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6">
-                        <div class="about-one__right">
-                            <div class="section-title text-left">
-                                <span class="section-title__tagline">{{$setting->aboutus_title}}</span>
-                                <!--<h2 class="section-title__title">Helping each other can make world better</h2>-->
-                            </div>
-                            <p class="about-one__text">{{$setting->aboutus_description}} </p>
-                        
-                            <ul class="list-unstyled about-one__points">
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-volunteer"></span>
-                                    </div>
-                                    <div class="text">
-                                        <h5><a href="/about-us">{{$setting->our_mission}}</a></h5>
-                                        <p>{{Str::of($setting->our_mission_description)->limit(80);}}</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-solidarity"></span>
-                                    </div>
-                                    <div class="text">
-                                        <h5><a href="/about-us">{{$setting->our_vission}}</a></h5>
-                                        <p>{{Str::of($setting->our_vission_description)->limit(80);}}</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <a href="/about-us" class="thm-btn about-one__btn">Discover More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--About One End-->
-
 
         <!--Become Volunteer One Start-->
            <section class="become-volunteer-one">
