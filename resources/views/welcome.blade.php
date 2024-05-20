@@ -135,8 +135,6 @@
             <div class="container">
                  <div class="section-title text-center">
                     <span class="section-title__tagline">News &amp; Events</span>
-                   
-                    </h2>
                 </div>
                 <div class="events-carousel thm-owl__carousel owl-theme owl-carousel carousel-dot-style"
                     data-owl-options='{
@@ -198,7 +196,7 @@
                                 $category =  DB::table('categories')->where('status',1)->get(); 
                                 ?>
         
-         <!--Events Page Start-->
+         <!--Publication Page Start-->
             <section class="events-carousel-page">
             <div class="container">
                  <div class="section-title text-center">
@@ -272,9 +270,9 @@
                     <!--<p class="become-volunteer-one__sub-title">"Green Chemistry, Clean World"</p>-->
                     <h3 class="become-volunteer-one__title">{{$setting->green_title}}
                     </h3>
-                    <div class="become-volunteer-one__btn-box">
+                    <!-- <div class="become-volunteer-one__btn-box">
                         <a href="become-volunteer.html" class="thm-btn become-volunteer-one__btn">Discover More</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>

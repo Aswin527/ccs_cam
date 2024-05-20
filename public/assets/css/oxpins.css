@@ -1110,7 +1110,7 @@ ul {
 
 
 @media (min-width: 1200px) {
-
+  
   .main-menu .main-menu__list,
   .main-menu .main-menu__list>li>ul,
   .main-menu .main-menu__list>li>ul>li>ul,
@@ -3884,6 +3884,7 @@ body.locked .page-wrapper {
   overflow: hidden;
   border-radius: var(--oxpins-bdr-radius);
   z-index: 1;
+  height: 400px;
 }
 
 .events-one__img:before {
@@ -8526,6 +8527,7 @@ body.locked .page-wrapper {
   .sidebar {
     margin-top: 50px;
   }
+  
 }
 
 .sidebar__single+.sidebar__single {
@@ -13260,7 +13262,15 @@ body.boxed-wrapper {
 
 
 
-
+/*--Read More--*/
+.more-content {
+  display: none;
+}
+.read-more-btn, .read-less-btn {
+  color: var(--oxpins-gray);
+  cursor: pointer;
+}
+/*-- Read More End--*/
 
 
 

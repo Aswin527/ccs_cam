@@ -19,15 +19,45 @@
                 </div>
             </div>
 </section>
-<section class="owner">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-8">
-                <div class="owner-text">
-                   <h4>{{$setting->president_name}}</h4>
-                   <h6>Cambodian Chemical Society</h6>
-                   <p>{{Str::of($setting->president_description)->limit(180);}}</p>
-                   <a href="/know-more-message-from-president">Know More Message From President </a>
+        <section class="owner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="owner-text">
+                            <h3>Message from President</h3>
+                            <h4>{{$setting->president_name}}</h4>
+                            <h6>Cambodian Chemical Society</h6>
+                            <p>
+            {{ Str::limit($setting->president_description, 150) }}
+            <span class="dots">...</span>
+            <span class="more-content">{{ Str::substr($setting->president_description, 150) }}</span>
+        </p>
+        <span class="read-more-btn">Read More</span>
+        <span class="read-less-btn" style="display: none;">Read Less</span>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const readMoreBtn = document.querySelector('.read-more-btn');
+                const readLessBtn = document.querySelector('.read-less-btn');
+                const dots = document.querySelector('.dots');
+                const moreContent = document.querySelector('.more-content');
+
+                readMoreBtn.addEventListener('click', () => {
+                    dots.style.display = 'none';
+                    moreContent.style.display = 'inline';
+                    readMoreBtn.style.display = 'none';
+                    readLessBtn.style.display = 'inline';
+                });
+
+                readLessBtn.addEventListener('click', () => {
+                    dots.style.display = 'inline';
+                    moreContent.style.display = 'none';
+                    readMoreBtn.style.display = 'inline';
+                    readLessBtn.style.display = 'none';
+                });
+            });
+        </script>
+                    <!-- <a href="/know-more-message-from-president">Know More Message From President </a> -->
                 </div>
             </div>
             <div class="col-xl-4">

@@ -187,7 +187,10 @@
                                             <i class="fas fa-phone-alt"></i>
                                         </div>
                                         <div class="text">
-                                            <p><a href="#">{{$setting->phone}} </a>
+                                            <p>
+                                                @foreach(explode(',', $setting->phone) as $phone)
+                                                    <a href="tel:{{$phone}}">{{$phone}}</a><br>
+                                                @endforeach
                                             </p>
                                         </div>
                                     </li>
