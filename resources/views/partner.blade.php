@@ -32,16 +32,19 @@
     font-size: 14px;
     line-height: 19px;
 }
+.container-aboutus {
+    height:200px;
+}
 </style>
 
-<section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/bg.jpg)">
-            </div>
-            <div class="container">
-                <div class="page-header__inner">
+<section class="">
+           
+            <div class="container-aboutus">
+            <div class="overlay"></div>
+                <div class="page-header__inner" >
                     <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="/">Home</a></li>
-                        <li><span>/</span></li>
+                        <li><a href="/">Cambodian Chemical Society</a></li>
+                        <li><span>></span></li>
                         <li class="active">Partners</li>
                     </ul>
                     <h2>Our Partners</h2>
@@ -50,7 +53,7 @@
 </section>
 
 <!--Team One Start-->
-        <section class="team-one">
+        <section class="team-one" style="padding-top:25px;">
             <div class="container">
                 <div class="row">
                     

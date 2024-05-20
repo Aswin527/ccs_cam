@@ -1,14 +1,18 @@
 @extends('layouts.app')
 @section('meta_title','Events')
 @section('content')
-<section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/bg_about-us.jpg)">
-            </div>
-            <div class="container">
+<style>
+    .container-aboutus {
+    height:200px;
+}
+</style>
+<section class="">
+            <div class="container-aboutus">
+            <div class="overlay"></div>
                 <div class="page-header__inner">
                     <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="/">Home</a></li>
-                        <li><span>/</span></li>
+                        <li><a href="/">Cambodian Chemical Society</a></li>
+                        <li><span>></span></li>
                         <li class="active">All Events</li>
                     </ul>
                     <h2>All Events</h2>
@@ -16,7 +20,7 @@
             </div>
 </section>
 
-<section class="donations-list">
+<section class="donations-list" style="padding-top:25px;">
             <div class="container">
                 <div class="donations-list__inner">
                     @foreach($data as $data)

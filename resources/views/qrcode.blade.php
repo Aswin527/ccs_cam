@@ -9,18 +9,21 @@
       max-width: 200px;
       margin: 10px;
     }
+    .container-aboutus {
+    height:200px;
+}
   </style>
 @endsection
 @section('content')
 
-<section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/bg_about-us.jpg)">
-            </div>
-            <div class="container">
+<section class="">
+            
+            <div class="container-aboutus">
+            <div class="overlay"></div>
                 <div class="page-header__inner">
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="/">Home</a></li>
-                        <li><span>/</span></li>
+                        <li><span>></span></li>
                         <li class="active">QRCode</li>
                     </ul>
                     <h2>QRCode</h2>

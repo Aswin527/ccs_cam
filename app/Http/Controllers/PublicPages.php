@@ -88,6 +88,19 @@ class PublicPages extends Controller
         //dd($data);
          return view('video')->with('data',$data);  
     }
+
+    public function all_image(){
+        $data = Gallery::get();
+         //dd($data);
+          return view('image')->with('data',$data);  
+     }
+
+    public function all_gallery(){
+        $gallery = Gallery::get();
+        $videos = Video::get();
+         //dd($data);
+         return view('allgallery')->with('video',$videos)->with('gallery',$gallery);
+     }
     
     public function single_events($id){
          $data = Event::find($id);

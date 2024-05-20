@@ -3,22 +3,28 @@
 
 
 @section('content')
+<style>
+    .container-aboutus {
+    height:200px;
+}
+</style>
 <?php $setting = DB::table('settings')->where('id',1)->first();?>
-<section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/bg_about-us.jpg)">
-            </div>
-            <div class="container">
+<section class="">
+            
+            <div class="container-aboutus">
+            <div class="overlay"></div>
                 <div class="page-header__inner">
                     <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="/">Home</a></li>
-                        <li><span>/</span></li>
-                        <li class="active">Pages</li>
+                        <li><a href="/">Cambodian Chemical Society</a></li>
+                        <li><span>></span></li>
+                        <li class="active">About</li>
+                        <li><span>></span></li>
                     </ul>
                     <h2>President Message</h2>
                 </div>
             </div>
 </section>
-<section class="owner">
+<section class="owner" style="margin-top:0px;">
     <div class="container">
         <div class="row">
             <div class="col-xl-12">
