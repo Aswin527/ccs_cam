@@ -8260,6 +8260,7 @@ body.locked .page-wrapper {
   clip-path: polygon(0 0, 70% 0%, 0 170%, 0 0%); /* Adjust points for diagonal cut */
 }
 
+
 .page-header__inner {
   position: relative;
   z-index: 1;

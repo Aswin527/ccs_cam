@@ -72,6 +72,8 @@ Route::post('/events/store/memerid','PublicPages@event_membership');
 Route::get('/membership','PublicPages@membership');
 Route::get('/all-events','PublicPages@all_events');
 Route::get('/all-video','PublicPages@all_video');
+Route::get('/all-image','PublicPages@all_image');
+Route::get('/all-gallery','PublicPages@all_gallery');
 Route::get('/events/{id}','PublicPages@single_events');
 Route::get('//event-detail/{id}','PublicPages@detail_events');
 Route::get('/qrcode/{id}','PublicPages@qrcode_events');

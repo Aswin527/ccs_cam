@@ -124,7 +124,7 @@
                                         <li class=""><a href="/membership">Membership</a></li>
                                         <li class=""><a href="/all-events">Events</a></li>
                                         <li class=""><a href="/our-partners">Our Partner</a></li>
-                                        <li class=""><a href="/all-video">Video Gallery</a></li>
+                                        <li class=""><a href="/all-gallery">Gallery</a></li>
                                        <li><a href="/contact">Contact</a></li>
                                     </ul>
                                 </div>

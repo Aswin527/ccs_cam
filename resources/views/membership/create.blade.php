@@ -3,14 +3,19 @@
 @section('meta_keywords','Membership')
 @section('meta_description','Membership')
 @section('content') 
-<section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/bg_about-us.jpg)">
-            </div>
-            <div class="container">
-                <div class="page-header__inner">
+<style>
+    .container-aboutus {
+    height:200px;
+}
+</style>
+<section class="">
+            
+            <div class="container-aboutus">
+            <div class="overlay"></div>
+                <div class="page-header__inner" >
                     <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="/">Home</a></li>
-                        <li><span>/</span></li>
+                        <li><a href="/">Cambodian Chemical Society</a></li>
+                        <li><span>></span></li>
                         <li class="active">Membership</li>
                     </ul>
                     <h2>Membership</h2>
