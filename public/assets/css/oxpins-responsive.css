@@ -580,6 +580,8 @@
 
     .gallery-one__single {
         width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .faq-one__left {

@@ -34,11 +34,12 @@
                 <div class="carousel-inner">
                     @foreach ($slider as $key => $sliderItem)
                     <div class="carousel-item {{ $key == 0 ? 'active':'' }}">
-                    <img src="images/{{$sliderItem->image}}" class="slider_img d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h1>{{$sliderItem->title}}</h1>
-                        <p>{{$sliderItem->subtitle}}</p>
-                    </div>
+                    <div class="slider-overlay"></div> <!-- Overlay -->
+                        <img src="images/{{$sliderItem->image}}" class="slider_img d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h1>{{$sliderItem->title}}</h1>
+                                <p>{{$sliderItem->subtitle}}</p>
+                            </div>
                     </div>
                     @endforeach
                 </div>
@@ -177,7 +178,7 @@
                                         <li><i class="fas fa-map-marker-alt"></i>{{$events->location_event}}</li>
                                     </ul>
                                     <h3 class="events-one__title"><a href="/events/{{$events->id}}">{{$events->event_name}}</a></h3>
-                                    <a href="/events/{{$events->id}}" class="view" target="_blink">View More Event</a>
+                                    <a href="/events/{{$events->id}}" class="view" target="_blink">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -377,23 +378,32 @@
         <!--Gallery One Start-->
          <section class="gallery-one">
             <div class="gallery-one__top">
-                <h3 class="gallery-one__top-title">Our photo gallery</h3>
+                <h3 class="gallery-one__top-title">Our Gallery</h3>
             </div>
             <div class="gallery-one__bottom">
-                <div class="gallery-one__container">
-                    <ul class="list-unstyled gallery-one__list">
-                    @foreach($gallery as $gallery )    
+            <div class="gallery-one__container">
+                <ul class="list-unstyled gallery-one__list">
+                    @foreach($gallery->take(6) as $index => $item)
                         <li class="gallery-one__single wow fadeInUp" data-wow-delay="100ms">
                             <div class="gallery-one__img">
-                                <img src="/images/{{$gallery->image}}" alt="">
-                                <a href="/images/{{$gallery->image}}" class="img-popup"></a>
-                                
+                                <img src="/images/{{ $item->image }}" alt="">
+                                @if ($index == 5)
+                                    <a href="/all-gallery" class="view-more-overlay">
+                                        <span class="view-more-link">View More</span>
+                                    </a>
+                                @else
+                                    <a href="/images/{{ $item->image }}" class="img-popup">
+                                        <img src="/images/{{ $item->image }}" alt="">
+                                    </a>
+                                @endif
                             </div>
                         </li>
-                     @endforeach  
-                    </ul>
-                </div> 
-            </div>
+                        
+                    @endforeach
+                </ul>
+            </div> 
+        </div>
+
         </section>
        
   

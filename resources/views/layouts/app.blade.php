@@ -196,10 +196,10 @@
                                     </li>
                                 </ul>
                                 <div class="site-footer__social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.youtube.com/@ccs-cambodiacambodianchemi2580"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://www.facebook.com/ccsphnompenh"><i class="fab fa-facebook"></i></a>
+                                    <a href="#"><i class="fab fa-telegram"></i></a>
+                                    <!-- <a href="#"><i class="fab fa-instagram"></i></a> -->
                                 </div>
                             </div>
                         </div>
