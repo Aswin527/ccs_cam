@@ -5,10 +5,10 @@
 @section('content')
 <style>
     .team-one__single {
-    border: 1px solid lightgray;
-    padding: 23px;
+    /* border: 1px solid lightgray; */
+    padding: 15px;
     text-align: center;
-        min-height: 274px;
+    min-height: 140px;
 }
 .team-one__img img {
     width: 105px;
@@ -59,19 +59,19 @@
                     
                     <!--Team One Single Start-->
                     @foreach($partner as $partner)
-                        <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="col-xl-4 col-lg-7 col-md-7 wow fadeInUp" data-wow-delay="100ms">
                             <div class="team-one__single">
                                 <div class="team-one__img">
                                     <img src="/images/{{$partner->image}}" alt="">
-                                   
                                 </div>
-                                <div class="team-one__content">
+                                <!-- <div class="team-one__content">
                                     <h3 class="team-one__name"><a href="#">{{$partner->name}}</a></h3>
                                     
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     @endforeach
+
                     <!--Team One Single End-->
                    
                     
