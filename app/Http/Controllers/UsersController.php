@@ -41,8 +41,27 @@ class UsersController extends Controller
         $position = Position::get();
         $country = Country::get();
         $education = Education::get();
+        // return view('loginuser.profile')->with('country',$country)->with('organization',$organization)->with('category',$category)
+        // ->with('position',$position)->with('education',$education);
+        return view('loginuser.userprofile')->with('country',$country)->with('organization',$organization)->with('category',$category)
+        ->with('position',$position)->with('education',$education);
+        
+    }
+
+    public function edit_profiles(){
+        if(!Auth::user()){
+           Session::flash('flash_type','danger');
+            Session::flash('flash_message','You are not Authenticate!');
+            return back();  
+        }
+        $organization= Organization::get();
+        $category= OrganizationCategory::get();
+        $position = Position::get();
+        $country = Country::get();
+        $education = Education::get();
         return view('loginuser.profile')->with('country',$country)->with('organization',$organization)->with('category',$category)
         ->with('position',$position)->with('education',$education);
+     
         
     }
     
