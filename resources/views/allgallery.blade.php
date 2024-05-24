@@ -5,6 +5,13 @@
     .videos{
         margin:30px 0px;
     }
+
+    .images{
+        margin:30px 0px;
+        display:flex;
+        justify-content:center;
+    }
+
     .videos h4 {
         font-size: 14px;
         font-size: t-w;
@@ -76,7 +83,7 @@
             @break
             @endif
                 <div class="col-lg-4">
-                    <div class="videos">
+                    <div class="images">
                        <img src="/images/{{$gallerys->image}}" alt="">
                        <a href="/images/{{$gallerys->image}}" class="img-popup"></a>
                     </div>
