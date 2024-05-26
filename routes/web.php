@@ -246,6 +246,7 @@ Route::group(['middleware' => 'auth'],function(){
              // all user login routes        
              
              Route::get('/user/dashboard', 'UsersController@profiles');
+             Route::get('/user/edit_profile', 'UsersController@edit_profiles');
              Route::post('/home/user/update/profile', 'UsersController@updateprofiles');
              Route::get('/user/organization', 'UsersController@userorganization');
              Route::get('/user/logout', 'UsersController@userlogout');
@@ -257,6 +258,7 @@ Route::group(['middleware' => 'auth'],function(){
               Route::get('/home/donation/edit/{id}', 'UsersController@donations_edit');
               Route::post('/user/donation/update', 'UsersController@donations_update');
               Route::get('/home/donation/show/{id}', 'UsersController@donations_show');
+             
 
              //video part  
              Route::get('/home/video', 'UsersController@video');

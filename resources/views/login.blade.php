@@ -1,10 +1,16 @@
 @extends('layouts.app')
 @section('meta_title','')
 @section('content')
-<section class="page-header">
-            <div class="page-header-bg" style="background-image: url(assets/images/bg_about-us.jpg)">
-            </div>
-            <div class="container">
+<style>
+    .container-aboutus {
+            height:200px;
+        } 
+</style>
+<section class="">
+            <!-- <div class="page-header-bg" style="background-image: url(assets/images/bg_about-us.jpg)">
+            </div> -->
+            <div class="container-aboutus">
+            <div class="overlay"></div>
                 <div class="page-header__inner">
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="/">Home</a></li>

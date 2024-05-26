@@ -251,8 +251,8 @@
                       @endforeach 
                 </div>
                 <div class="become-volunteer-one__btn-box tt">
-                        <a href="/publications" class="thm-btn become-volunteer-one__btn">View all publications</a>
-                    </div>
+                    <a href="/publications" class="thm-btn become-volunteer-one__btn">View all publications</a>
+                </div>
             </div>
         </section>
         <!--Events Page End-->

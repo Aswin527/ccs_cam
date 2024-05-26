@@ -16,6 +16,10 @@ use App\Models\visual;
 use App\Models\Event;
 use App\Models\Partner;
 use App\Models\Position;
+use App\Models\PaymentCategory;
+use App\Models\Currency;
+use App\Models\Country;
+
 use DB;
 use Validator;
 use App\Models\ProductOrder;
@@ -132,6 +136,7 @@ class PublicPages extends Controller
     public function login(){
         return view('login');
     }
+
     
     public function loginuser(Request $request){
         $user = User::where(['email'=>$request->email])->first();

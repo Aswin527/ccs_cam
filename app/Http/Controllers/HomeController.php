@@ -12,6 +12,7 @@ use App\Models\Slider;
 use App\Models\Testimonial;
 use App\Models\Category;
 use App\Models\Ocategory;
+use App\Models\PaymentCategory;
 use App\Models\OrganizationCategory;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
@@ -27,13 +28,14 @@ class HomeController extends Controller
         $user = User::where('type','!=',0)->count();
         $organization = Organization::count();
         $donations =  Donation::count();
-        $positon =  OrganizationCategory::get();
+        $pcategory = PaymentCategory::get();
+        $positon =  OrganizationCategory::get(); 
         
         $ocategory = Ocategory::get();
         $category = Category::where('type',1)->count();
         
         return view('home')->with('user',$user)->with('organization',$organization)
-        ->with('donations',$donations)->with('category',$category)->with('position',$positon)->with('ocategory',$ocategory);
+        ->with('donations',$donations)->with('category',$category)->with('position',$positon)->with('ocategory',$ocategory)->with('pcategory',$pcategory);
     }
 
     public function settings(){

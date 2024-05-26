@@ -99,7 +99,7 @@
                             <a href="/login" class="login_btn"><span class="fas fa-sign-in"></span>Login</a>
                         </div>
                         <div class="donation_btn_div">
-                            <a href="/" class="main-menu__btn"> <span class="fa fa-heart"></span>Donate Now</a>
+                            <a href="/user/donation" class="main-menu__btn"> <span class="fa fa-heart"></span>Donate Now</a>
                         </div>
                     </div>
                 </div>
