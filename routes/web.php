@@ -258,6 +258,7 @@ Route::group(['middleware' => 'auth'],function(){
               Route::get('/home/donation/edit/{id}', 'UsersController@donations_edit');
               Route::post('/user/donation/update', 'UsersController@donations_update');
               Route::get('/home/donation/show/{id}', 'UsersController@donations_show');
+             
 
              //video part  
              Route::get('/home/video', 'UsersController@video');
