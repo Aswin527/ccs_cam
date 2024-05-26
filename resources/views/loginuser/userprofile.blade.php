@@ -4,10 +4,10 @@
 
 <style>
     .profile-image {
-	border-radius: 50%;
+	border-radius: 8%;
 	overflow: hidden;
-	width: 195px;
-	height: 195px;
+	width: 150px;
+	height: 200px;
 	position: relative;
 	img {
 		position: absolute;
@@ -34,7 +34,7 @@
                         <a href="/user/edit_profile" class=""><button  style="float:right;" class="btn btn-primary w-md">Edit Profile</button></a>
                     </h1>
             </div>
-            <div class="card-body p-4" style="background-color:#5156;">
+            <div class="card-body p-4">
                 <div class="row">
                     
                     <div class="card col-md-5">

@@ -37,7 +37,7 @@
                 @endif
 
 
-                <p class="date">26 Jan, 2020</p>
+                <p class="date">{{$data->date}}</p>
               </a>
               <div class="blog-info">
                 <label class="tag-label red">Business</label>
