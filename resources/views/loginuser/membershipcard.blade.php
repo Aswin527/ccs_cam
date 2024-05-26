@@ -11,185 +11,123 @@
   </style>
 @endsection
 @section('content')
-
 <style>
-   
-
-    
-button,
-input,
-select,
-textarea {
-	font: inherit;
+   body {
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
 }
 
-a {
-	color: inherit;
-}
-/* End basic CSS override */
-
-.profile {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	padding: 3rem;
-	width: 90%;
-	max-width: 300px;
-	/*background-color: #1b2028;*/
-	border-radius: 16px;
-	position: relative;
-	border: 3px solid transparent;
-	background-clip: padding-box;
-	text-align: center;
-	color: #f1f3f3;
-	background-image: linear-gradient(
-		135deg,
-		rgba(#752e7c, 0.35),
-		rgba(#734a58, 0.1) 15%,
-		#1b2028 20%,
-		#1b2028 100%
-	);
-	&:after {
-		content: "";
-		display: block;
-		top: -3px;
-		left: -3px;
-		bottom: -3px;
-		right: -3px;
-		z-index: -1;
-		position: absolute;
-		border-radius: 16px;
-	    background-image: linear-gradient(135deg, #98ade9, #6585bf 20%, #6792d7 30%, #405577 100%);
-	}
+.profile-card {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    max-width: 500px;
+    margin: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative; /* Add relative positioning to the card container */
 }
 
-.profile-image {
-	border-radius: 50%;
-	overflow: hidden;
-	width: 175px;
-	height: 175px;
-	position: relative;
-	img {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 100%;
-	}
+.profile-logo {
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.profile-logo h4 {
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.profile-content {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.profile-image img {
+    border-radius: 8%;
+    border: none;
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .profile-username {
-	font-size: 1.5rem;
-	font-weight: 600;
-	margin-top: 1.5rem;
-	color:#000;
+    font-size: 24px;
+    margin: 0;
 }
 
-.profile-user-handle {
-	color: #7d8396;
+.member-info {
+    margin-top: 10px;
 }
 
-.profile-actions {
-	margin-top: 1.5rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	& > * {
-		margin: 0 0.25rem;
-	}
+.barcode {
+    position: absolute; /* Position the QR code absolutely */
+    bottom: 10px; /* 10px from the bottom */
+    right: 10px; /* 10px from the right */
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 5px;
 }
 
-.btn {
-	border: 0;
-	background-color: transparent;
-	padding: 0;
-	height: 46px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	line-height: 1;
-	transition: 0.15s ease;
-
-	&--primary {
-		border-radius: 99em;
-		background-color: #3772ff;
-		background-image: linear-gradient(135deg, #5587ff, #3772ff);
-		color: #fff;
-		padding: 0 1.375em;
-		&:hover,
-		&:focus {
-			background-size: 150%;
-		}
-	}
-
-	&--icon {
-		height: 46px;
-		width: 46px;
-		border-radius: 50%;
-		border: 3px solid #343945;
-		color: #7d8396;
-		i {
-			font-size: 1.25em;
-		}
-
-		&:hover,
-		&:focus {
-			border-color: #7d8396;
-		}
-	}
+.barcode img {
+    width: 70px;
+    border-radius: 8px;
 }
 
-.profile-links {
-	margin-top: 3.5rem;
-}
-.ccs-logo h4 {
-    color: #000;
-    font-size: 18px;
-    margin: 16px 0px;
-}
-
-.link {
-	text-decoration: none;
-	color: #7d8396;
-	margin-left: 0.375rem;
-	margin-right: 0.375rem;
-	i {
-		font-size: 1.25em;
-	}
-}
-.ccs-logo img {
-    border-radius: 50%;
+.row.justify-content-center {
+    display: flex;
+    justify-content: center;
 }
 </style>
-
-<div class="row">
-    <div class="col-lg-3">
-        
-    </div>
-    <div class="col-lg-6">
-        <article class="profile">
-            <div class="ccs-logo">
-                <img src="/assets/images/ccs-small-logo.jpg" width="50px">
+<section>
+<div class="row justify-content-center mt-5">
+    <div class="col-lg-8">
+        <article class="profile-card">
+            <div class="profile-logo">
+                <img src="/assets/images/ccs-small-logo.jpg" alt="CCS Logo">
                 <h4>Cambodian Chemical Society</h4>
             </div>
-            <h2 class="memberships">MEMBERSHIPCARD</h2>
-	<div class="profile-image">
-	     
-		<img src="@if(Auth::user()) /images/{{Auth::user()->photo}} @else /admin_assets/images/users/avatar-1.jpg @endif" />
-	</div>
-	<h2 class="profile-username">{{Auth::user()->firstname}} {{Auth::user()->lastname}}</h2>
-
-	<div class="profile-links">
-	   <div class="barcode my-0">
-         <img src="/assets/images/dummy-qr.png" width="70px">
-      </div>
-	</div>
-</article>
+            <div class="profile-content">
+                <div class="profile-image">
+                    <img src="{{ Auth::user() ? asset('images/' . Auth::user()->photo) : asset('admin_assets/images/users/avatar-1.jpg') }}" alt="Profile Image">
+                </div>
+                <div class="profile-details">
+                    <h2 class="profile-username">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h2>
+                    <div class="member-info">
+                        <p><strong>Member ID:</strong> XYZ123</p>
+                        <p><strong>Nationality:</strong> Cambodian</p>
+                        <p><strong>Phone:</strong> +1234567890</p>
+                    </div>
+                </div>
+            </div>
+            <div class="barcode">
+                <img src="/assets/images/dummy-qr.png" alt="QR Code">
+            </div>
+        </article>
     </div>
 </div>
-
-
+</section>
 @endsection
 @section('js')
 <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>

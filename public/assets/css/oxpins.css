@@ -37,6 +37,16 @@
   --oxpins-bdr-color-rgb: 238, 233, 219;
   --oxpins-bdr-radius: 20px;
 
+  --primary: #dc4f72;
+  --secondary: #0d5fa8;
+  --title-color: #2C3038;
+  --text-color: #5a5a5a;
+  --light-bg-color: #F7F9FC;
+  --card-curve: 6px;
+  --card-box-shadow: 1px 5px 7.5px rgba(196, 196, 196, 0.2);
+  --card-hover-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.09);
+  --transformY: translateY(-0.5rem); 
+
 }
 .main-menu__logo img {
   
@@ -13295,3 +13305,158 @@ body.boxed-wrapper {
 /*--------------------------------------------------------------
 # Product
 --------------------------------------------------------------*/
+
+
+
+
+
+.w3l-index5 .grids5-info {
+  border-radius: var(--card-curve);
+  transition: 0.3s ease-in;
+  display: block;
+  height: 100%;
+  background: #fff;
+  border: 1px solid #eee; }
+
+.w3l-index5 .grids5-info:hover {
+  box-shadow: var(--card-hover-box-shadow);
+  transform: var(--transformY); }
+
+.w3l-index5 a.zoom {
+  overflow: hidden;
+  position: relative; }
+
+.w3l-index5 a.zoom img {
+  transition: 0.3s ease-in-out;
+   }
+
+.w3l-index5 .grids5-info:hover a.zoom img {
+  overflow: hidden;
+  transition: 0.3s ease-in-out; }
+
+.w3l-index5 .blog-info {
+  background: #fff;
+  padding: 30px 20px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px; }
+
+.w3l-index5 .grid-view img.news-image {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px; }
+
+.w3l-index5 .grid-view a.zoom {
+  border-top-left-radius: var(--card-curve);
+  border-top-right-radius: var(--card-curve); }
+
+.w3l-index5 .grid-view .grids5-info h4 a {
+  font-size: 22px;
+  line-height: 27px;
+  color: var(--title-color);
+  display: block;
+  font-weight: 600; }
+
+.w3l-index5 .grids5-info:hover div.blog-info h4 a {
+  color: var(--oxpins-primary); }
+
+.w3l-index5 .grid-view .grids5-info h4 a:hover {
+  color: var(--oxpins-primary); }
+
+.w3l-index5 .grid-view .grids5-info p {
+  font-size: 16px;
+  line-height: 24.5px;
+  color: var(--text-color);
+  margin-top: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 20px; }
+
+.w3l-index5 .grid-view p.date {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+  border-bottom: none;
+  padding-bottom: 0px;
+  position: absolute;
+  top: 0;
+  background: var(--oxpins-base);
+  padding: 15px;
+  margin-bottom: 0;
+  right: 0;
+  margin-top: 0; }
+
+.w3l-index5 .grid-view .grids5-info img {
+  width: 100%;
+  display: block; }
+
+.w3l-index5 a.btn-news {
+  padding: 0;
+  color: var(--oxpins-base);
+  transition: 0.3s ease-in-out;
+  border-radius: 0;
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600; }
+
+.w3l-index5 a.btn-news span {
+  font-size: 60%;
+  vertical-align: middle;
+  padding-left: 0px;
+  position: absolute;
+  right: -13px;
+  top: 7.5px;
+  transition: 0.3s ease-in; }
+
+.w3l-index5 label.tag-label {
+  padding: 5px 16px;
+  display: inline-block;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 15px; }
+
+.w3l-index5 label.tag-label.red {
+  background: var(--oxpins-base);
+  color: #fff; }
+
+.w3l-index5 label.tag-label.green {
+  background: rgba(0, 128, 0, 0.2);
+  color: #008000; }
+
+.w3l-index5 label.tag-label.blue {
+  background: rgba(0, 0, 255, 0.2);
+  color: #0000ff; }
+
+.w3l-index5 a.btn-news:hover {
+  transition: 0.3s ease-in-out;
+  color: var(--oxpins-black); }
+
+.w3l-index5 a.btn-news:hover span.fa {
+  right: -16px;
+  transition: 0.3s ease-in; }
+
+.w3l-index5 .grids5-info:hover a.btn-news span.fa {
+  right: -16px;
+  transition: 0.3s ease-in; }
+
+@media all and (max-width: 768px) {
+  .w3l-index5 .grids5-info h4 a {
+    font-size: 20px;
+    line-height: 25px; } }
+
+@media all and (max-width: 568px) {
+  .w3l-index5 .grids5-info p {
+    margin-top: 12px; } }
+
+@media all and (max-width: 414px) {
+  .w3l-index5 .grids5-info h4 a {
+    font-size: 23px; } }
+
+@media all and (max-width: 384px) {
+  .w3l-index5 .grids5-info h4 a {
+    font-size: 22px; } }
+
+    .img-fluid {
+      max-width: 100%;
+      height: auto; }
+    

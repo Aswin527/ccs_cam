@@ -20,45 +20,39 @@
             </div>
 </section>
 
-<section class="donations-list" style="padding-top:25px;">
-            <div class="container">
-                <div class="donations-list__inner">
-                    @foreach($data as $data)
-                            <!--Donations List Single Start-->
-                            <div class="donations-list__single">
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6">
-                                        <div class="donations-list__img">
-                                            @if($data->image_event)
-                                            <img src="/images/{{$data->image_event}}" alt="">
-                                            @else
-                                            <img src="assets/images/resources/donations-list-img-1.jpg" alt="">
-                                            @endif
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6">
-                                        <div class="donations-list__right">
-                                            <div class="donations-list__content">
-                                                <div class="donations-list__category">
-                                                    <p>{{$data->location_event}}</p>
-                                                </div>
-                                                <h3 class="donations-list__title"><a href="#">{{$data->event_name}}</a></h3>
-                                                <p class="donations-list__text m-b-10">{{$data->about_event}}</p>
-                                               <a href="/qrcode/{{$data->id}}" class="thm-btn about-one__btn">View Detail</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Donations List Single End-->
-                            
-                   @endforeach            
-                   
-                </div>
-            </div>
-        </section>
+<section class="w3l-index5" id="news">
+  <section id="grids5-block" class="py-5">
+    <div class="container py-lg-3">
+      
+      <div class="grid-view">
+        <div class="row">
+        @foreach($data as $data)
+          <div class="col-lg-4 col-md-6 mt-5">
+            <div class="grids5-info">
+              <a href="/events/{{$data->id}}" class="d-block zoom">
+                @if($data->image_event)
+                <img src="/images/{{$data->image_event}}" alt="">
+                @else
+                <img src="assets/images/resources/donations-list-img-1.jpg" alt="">
+                @endif
 
+
+                <p class="date">26 Jan, 2020</p>
+              </a>
+              <div class="blog-info">
+                <label class="tag-label red">Business</label>
+                <h4><a href="/events/{{$data->id}}">{{$data->event_name}}</a></h4>
+                <p class="blog-text">{{Str::limit($data->about_event, 100)}}</p>
+                <a href="/events/{{$data->id}}" class="btn btn-news">Know More <span class="fa fa-arrow-right" aria-hidden="true"></span> </a>
+              </div>
+            </div>
+          </div>  
+          @endforeach                  
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
 
 
 

@@ -144,6 +144,107 @@ section.page-header {
   }
 
 }
+
+
+
+
+.event-container {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.event-header {
+    text-align: center;
+}
+
+.event-header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.event-header p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.event-description {
+    margin: 20px 0;
+}
+
+.event-description h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.event-description p {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.event-actions {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.event-actions button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #00715d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20%;
+}
+
+.event-actions button:hover {
+    background-color: #052e16;
+}
+
+.event-map {
+    margin: 20px 0;
+}
+
+.event-map h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#map-container {
+    text-align: center;
+}
+
+#location-map {
+    width: 100%;
+    height: 400px;
+    border: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .event-container {
+        padding: 10px;
+    }
+
+    .event-header h1 {
+        font-size: 1.5em;
+    }
+
+    .event-description h2,
+    .event-map h2 {
+        font-size: 1.25em;
+    }
+
+    .event-actions button {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+}
  </style>
 @endsection
 
@@ -151,9 +252,9 @@ section.page-header {
 
 @section('content')
 
-<section class="page-header">
-            <div class="page-header-bg" style="background-image: url(/assets/images/Angkor-Wat-temple-complex-Camb.webp)">
-            </div>
+<section>
+<div class="container">
+<!--             
             <div class="container">
                 <div class="page-header__inner">
                      <h2>{{$data->event_name}}</h2>
@@ -161,89 +262,35 @@ section.page-header {
                     <p><b>Place : </b> {{$data->location_event}}</p>
                    
                 </div>
-            </div>
-</section>
-
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="lool">
-                    <a href="/event-detail/{{$data->id}}">
-                        ABOUT EVENT
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="lool">
-                    <a href="/join-event/{{$data->id}}">
-                        JOIN EVENT
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="lool">
-                    <a href="{{$data->iframe}}" target="_blink">
-                        LOCATION MAP
-                    </a>
-                </div>
+            </div> -->
+            
+            <div class="event-container">
+        <div class="event-header">
+            <h1 id="event-name">{{$data->event_name}}</h1>
+            <p id="event-date"><b>Date:</b> {{$data->date}}</p>
+            <p id="event-location"><b>Location:</b> {{$data->location_event}}</p>
+        </div>
+        <div class="event-description">
+            <h2>About the Event</h2>
+            <p id="event-description">{{$data->about_event}}</p>
+        </div>
+        <div class="event-actions">
+            <a id="join-event" href="/join-event/{{$data->id}}">Join Event</button>
+        </div>
+        <div class="event-map">
+            <h2>Location Map</h2>
+            <div id="map-container">
+                <!-- Embed Google Map here -->
+                <iframe id="location-map"
+                        src="{{$data->iframe}}"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </div>
+</div>
 </section>
 
- 
 
-        
-      <!--  <section class="">-->
-      <!--      <div class="container">-->
-      <!--          <div class="row">-->
-      <!--              @if ( Session::has('flash_message') )-->
-      <!--                  <div class="alert alert-{{ Session::get('flash_type') }} alert-dismissible fade show" role="alert">-->
-      <!--                      <b>{{ Session::get('flash_message') }}</b>-->
-      <!--                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-      <!--                          <span aria-hidden="true">×</span>-->
-      <!--                      </button>-->
-      <!--                  </div>-->
-      <!--              @endif-->
-      <!--              <div class="col-lg-12">-->
-      <!--                   <form action="/events/store/memerid" method="post">-->
-      <!--                @csrf-->
-      
-        
-      <!--  <fieldset>-->
-      <!--    <legend> <span class="number">1</span> Your Basic Info</legend>-->
-      <!--    <label for="name">Member ID:</label>-->
-      <!--    <input type="text" id="name" name="member_id">-->
-      <!--    <input type="hidden" id="event" name="event_id">-->
-      <!--</fieldset>-->
-      <!--  <fieldset>  -->
-        
-      <!--    <legend><b>{{$data->event_name}}</b></legend>-->
-          
-      <!--   <label for="bio">About Event:</label>-->
-      <!--    <textarea id="bio" name="user_bio" readonly>-->
-      <!--        {{$data->about_event}}-->
-      <!--    </textarea>-->
-        
-       
-      
-         
-          
-         
-          
-      <!--   </fieldset>-->
-       
-      <!--  <button type="submit">Submit</button>-->
-        
-      <!-- </form>-->
-      <!--              </div>-->
-      <!--          </div>-->
-      <!--      </div>-->
-      <!--  </section>-->
-
-
-<!-- Modal -->
 
 
 @endsection
