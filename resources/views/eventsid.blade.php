@@ -190,20 +190,32 @@ section.page-header {
     margin: 20px 0;
 }
 
-.event-actions button {
+.event-actions a {
+    display: inline-block;
     padding: 10px 20px;
     font-size: 1em;
-    background-color: #00715d;
+    background-color: #fbd45a;
     color: #fff;
+    text-decoration: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
-    width: 20%;
+    width: 100%;
+    text-align: center; /* Ensure text is centered within the button */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
-.event-actions button:hover {
+.event-actions a:hover {
     background-color: #052e16;
+    color: #fbd45a; /* Optional: Change text color on hover */
 }
+/* .event-actions a{
+    color:#052e16;
+}
+
+.event-actions a:hover{
+    color:#fbd45a;
+} */
 
 .event-map {
     margin: 20px 0;
@@ -245,6 +257,12 @@ section.page-header {
         font-size: 0.9em;
     }
 }
+
+.join-btn{
+    display: flex;
+    justify-content: center;
+}
+
  </style>
 @endsection
 
@@ -274,8 +292,10 @@ section.page-header {
             <h2>About the Event</h2>
             <p id="event-description">{{$data->about_event}}</p>
         </div>
-        <div class="event-actions">
-            <a id="join-event" href="/join-event/{{$data->id}}">Join Event</button>
+        <div class="join-btn">
+            <div class="event-actions">
+                <a id="join-event" href="/join-event/{{$data->id}}">Join Event</button>
+            </div>
         </div>
         <div class="event-map">
             <h2>Location Map</h2>

@@ -324,7 +324,11 @@ Route::group(['middleware' => 'auth'],function(){
              Route::get('/home/testimonials/edit/{id}', 'HomeController@testimonials_edit');
              Route::post('/home/testimonials/update', 'HomeController@testimonials_update');
              
-             
+             //Event Attendance 
+
+            Route::get('/event/{event}/attendance', [EventController::class, 'showAttendanceForm'])->name('event.attendance');
+            Route::post('/event/{event}/attendance', [EventController::class, 'markAttendance'])->name('event.markAttendance');
+
              
             
 });

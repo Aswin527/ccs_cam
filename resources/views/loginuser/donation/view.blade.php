@@ -77,7 +77,7 @@
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <div class="mb-3">
-                                                                    <label class="form-label" for="formrow-email-input">Upload Transection Photo</label>
+                                                                    <label class="form-label" for="formrow-email-input">Upload Transaction Photo</label>
                                                                     <input type="file" class="form-control" name="transection" id="formrow-email-input">
                                                                 </div>
                                                             </div>
@@ -109,7 +109,7 @@
                                                 <th>Pay Type</th>
                                                 <th>Currency</th>
                                                 <th>Amount</th>
-                                                <th>Transection Photo</th>
+                                                <th>Transaction Photo</th>
                                                 <th>Status</th>
                                                 <th>Remark</th>
                                             </tr>

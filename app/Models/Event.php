@@ -13,7 +13,7 @@ class Event extends Model
    protected $table = 'events';
 
     protected $fillable = [
-        'event_name','location_event','about_event','image_event','date','iframe'
+        'event_name','location_event','about_event','image_event','date','iframe','status'
     ];
 
    

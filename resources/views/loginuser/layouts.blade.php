@@ -164,7 +164,7 @@
                             <li>
                                 <a href="/user/donation">
                                    <i class=" bx bx-dollar"></i>
-                                    <span data-key="t-dashboard">Paymnets</span>
+                                    <span data-key="t-dashboard">Payments</span>
                                 </a>
                             </li>
                              <li>

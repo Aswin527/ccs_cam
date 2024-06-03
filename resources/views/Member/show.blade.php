@@ -54,7 +54,7 @@
                                                 <th>Pay Type</th>
                                                 <th>Currency</th>
                                                 <th>Amount</th>
-                                                <th>Transection Photo</th>
+                                                <th>Transaction Photo</th>
                                                 <th>Status</th>
                                                 <th>Status Change</th>
                                                 <td></td>
