@@ -28,14 +28,18 @@ class HomeController extends Controller
         $user = User::where('type','!=',0)->count();
         $organization = Organization::count();
         $donations =  Donation::count();
+        $payment = PaymentCategory::count();
         $pcategory = PaymentCategory::get();
         $positon =  OrganizationCategory::get(); 
+        $donation_info = Donation::get();
         
         $ocategory = Ocategory::get();
         $category = Category::where('type',1)->count();
         
         return view('home')->with('user',$user)->with('organization',$organization)
-        ->with('donations',$donations)->with('category',$category)->with('position',$positon)->with('ocategory',$ocategory)->with('pcategory',$pcategory);
+        ->with('donation_info', $donation_info)
+        ->with('donations',$donations)->with('category',$category)->with('position',$positon)
+        ->with('ocategory',$ocategory)->with('pcategory',$pcategory)->with('payment',$payment);
     }
 
     public function settings(){

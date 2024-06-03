@@ -30,6 +30,9 @@
         .container-aboutus {
     height:200px;
 }
+.owner {
+    background-color: var(--oxpins-extra);
+}
 </style>
 <section class="">
             

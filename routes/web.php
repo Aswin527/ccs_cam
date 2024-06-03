@@ -82,6 +82,7 @@ Route::get('/join-event/{id}','PublicPages@join_event');
 
 
 Route::post('/membership/user/store','EnquirysController@memnbershipuserstore');
+Route::post('/donations/store','UsersController@');
 
 Route::get('/search-gallery','PublicPages@visual');
 
@@ -253,6 +254,7 @@ Route::group(['middleware' => 'auth'],function(){
              Route::get('api/fetch-states', 'UsersController@fetchState');
              Route::post('/user/organization/update', 'UsersController@updateorganization');
              Route::get('/user/donation', 'UsersController@donations');
+             Route::get('/user/donations', 'UsersController@adddonations');
              Route::post('/user/donation/store', 'UsersController@donation_store');
              Route::get('/user/membership/card', 'UsersController@membershipcard');
               Route::get('/home/donation/edit/{id}', 'UsersController@donations_edit');

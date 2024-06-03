@@ -4,6 +4,11 @@
 @section('meta_image','images/logo-2.png')
 @section('content')
 <br><br><br><br>
+<style>
+.container {
+    background-color: var(--oxpins-extra);
+}
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

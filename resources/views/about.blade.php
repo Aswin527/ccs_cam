@@ -3,6 +3,11 @@
 
 
 @section('content')
+<style>
+    .contact-three .container {
+  max-width:1200px;
+}
+</style>
 <?php $setting = DB::table('settings')->where('id',1)->first();?>
 <section class="">
             
@@ -19,7 +24,7 @@
                 </div>
             </div>
 </section>
-        <section class="owner">
+        <section class="contact-three">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-8">
