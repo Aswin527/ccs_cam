@@ -5,6 +5,10 @@
     .container-aboutus {
     height:200px;
 }
+
+.contact-three .container {
+    max-width:1200px;
+}
 </style>
 <section class="">
             <div class="container-aboutus">
@@ -21,7 +25,7 @@
 </section>
 
 
-<section class="product">
+<section class="contact-three product">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3">

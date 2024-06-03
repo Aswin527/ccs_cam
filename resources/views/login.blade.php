@@ -13,8 +13,8 @@
             <div class="overlay"></div>
                 <div class="page-header__inner">
                     <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="/">Home</a></li>
-                        <li><span>/</span></li>
+                        <li><a href="/">Cambodian Chemical Society</a></li>
+                        <li><span>></span></li>
                         <li class="active">Login</li>
                     </ul>
                     <h2>Login</h2>

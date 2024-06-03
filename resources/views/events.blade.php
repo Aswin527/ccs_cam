@@ -2,8 +2,14 @@
 @section('meta_title','Events')
 @section('content')
 <style>
-    .container-aboutus {
+.container-aboutus {
     height:200px;
+}
+.contact-three .container {
+    max-width:1200px;
+}
+.contact-three {
+  padding:0px;
 }
 </style>
 <section class="">
@@ -20,7 +26,7 @@
             </div>
 </section>
 
-<section class="w3l-index5" id="news">
+<section class="contact-three w3l-index5" id="news">
   <section id="grids5-block" class="py-5">
     <div class="container py-lg-3">
       

@@ -3,6 +3,11 @@
 @section('meta_keywords','contactus')
 @section('meta_description','contactus')
 @section('content') 
+<style>
+    .container-aboutus {
+    height:200px;
+}
+</style>
 <section class="">
             
             <div class="container-aboutus">
@@ -18,7 +23,7 @@
             </div>
         </section>
 
-        <section class="contact-three">
+        <section class="contact-three" style="margin-top:0px;">
             <div class="contact-three-shape"
                 style="background-image: url(assets/images/shapes/contact-three-shape.png);"></div>
             <div class="container">

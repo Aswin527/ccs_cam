@@ -725,7 +725,21 @@ class UsersController extends Controller
         $data = Donation::where('user_id',Auth::user()->id)->get();
         $category = PaymentCategory::get();
         $currency = Currency::get();
-      return view('loginuser.donation.view')->with('data',$data)->with('category',$category)->with('currency',$currency);  
+        $country = Country::get();
+      return view('loginuser.donation.view')->with('data',$data)->with('country',$country)->with('currency',$currency)->with('category',$category);  
+     }
+
+     public function adddonations(Request $request){
+        if(!Auth::user()){
+            Session::flash('flash_type','danger');
+             Session::flash('flash_message','You are not Authenticate!');
+             return back();  
+         } 
+         $data = Donation::where('user_id',Auth::user()->id)->get();
+        $category = PaymentCategory::get();
+        $currency = Currency::get();
+        $country = Country::get();
+      return view('loginuser.donation.create')->with('country',$country)->with('currency',$currency)->with('category',$category);  
      }
      
      

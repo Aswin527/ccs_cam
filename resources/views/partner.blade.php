@@ -35,6 +35,9 @@
 .container-aboutus {
     height:200px;
 }
+.team-one {
+    background-color: var(--oxpins-extra);
+}
 </style>
 
 <section class="">
@@ -61,7 +64,7 @@
                     @foreach($partner as $partner)
                         <div class="col-xl-4 col-lg-7 col-md-7 wow fadeInUp" data-wow-delay="100ms">
                             <div class="team-one__single">
-                                <div class="team-one__img">
+                                <div class="" style="width:105px; margin:auto; text-align: center;">
                                     <img src="/images/{{$partner->image}}" alt="">
                                 </div>
                                 <!-- <div class="team-one__content">

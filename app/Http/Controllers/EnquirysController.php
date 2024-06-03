@@ -39,8 +39,10 @@ class EnquirysController extends Controller
      //dd($request->all()); 
      if($request->member_status == 0){
          $member="New Member";
+         $organization = $request->organization;
      }else{
          $member="Become Member";
+         $organization =  $request->working_organization_name;
      }
      User::create([
             'firstname' => $request->fname,
@@ -53,10 +55,14 @@ class EnquirysController extends Controller
             'cpass' => $request->password,  
             'member_category' => $member,
             'dob' => $request->dob,
-            'organization' => $request->working_organization_name,
+            // 'organization' => $request->working_organization_name,
+            'organization' => $organization,
             'porganization' => $request->postion,
             'membership_number' => $request->membership_number,
             'status' => 0,
+            'country'=>$request->country,
+            'state'=>$request->state,
+
             
         ]);
         Session::flash('flash_type','success');

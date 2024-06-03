@@ -7,6 +7,9 @@
     .container-aboutus {
     height:200px;
 }
+.contact-three .container {
+    max-width:1200px;
+}
 </style>
 <section class="">
             
@@ -23,7 +26,7 @@
             </div>
         </section>
 
-        <section class="contact-three">
+        <section class="contact-three" style="margin-top:0px;">
             <div class="contact-three-shape"
                 style="background-image: url(assets/images/shapes/contact-three-shape.png);"></div>
             <div class="container">
@@ -39,7 +42,7 @@
                    
                    
                     <span class="section-title__tagline">Contact with us</span>
-                    <h2 class="section-title__title">If you want to become an annual member of the Combodian Chemical Society(CCS), please fill in this form </h2>
+                    <h2 class="section-title__title">Be a Member of the CCS ! </h2>
                 </div>
                 
                 <div class="contact-page__form-box">
@@ -75,17 +78,7 @@
                                     <input type="text" placeholder="Last Name" name="lname">
                                 </div>
                             </div>
-                             <div class="col-xl-6">
-                                <div class="contact-form__input-box">
-                                    <input type="date" placeholder="Date of birth" name="dob">
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="contact-form__input-box">
-                                    <input type="text" placeholder="Qualification" name="qualification">
-                                </div>
-                            </div>
-                            
+
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
                                     <select name="gender">
@@ -104,6 +97,20 @@
                                     </select>
                                 </div>
                             </div>
+                             
+                            <div class="col-xl-6">
+                                <div class="contact-form__input-box">
+                                    <input type="text" placeholder="Qualification" name="qualification">
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6">
+                                <div class="contact-form__input-box">
+                                    <input type="date" placeholder="Date of birth" name="dob">
+                                </div>
+                            </div>
+                            
+                            
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
                                     <input type="text" placeholder="Department" name="department">
@@ -112,6 +119,40 @@
                              <div class="col-xl-6">
                                 <div class="contact-form__input-box">
                                     <input type="text" placeholder="Address" name="address">
+                                </div>
+                            </div>
+                            <div class="col-xl-6" id="country_div">
+                                <div class="contact-form__input-box">
+                                   <div class="contact-form__input-box">
+                                    <select name="country" id="country-dropdown">
+                                        <option>
+                                            Select Country
+                                        </option>
+                                        @foreach($country as $country )
+                                        <option value="{{$country->country_id}}">{{$country->name}}</option>
+                                        @endforeach
+                                       
+                                    </select>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6" id="organization_div">
+                                <div class="contact-form__input-box">
+                                    <input type="text" placeholder="Organization" name="organization">
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6" id="state_div">
+                                <div class="contact-form__input-box">
+                                   <div class="contact-form__input-box">
+                                    <select name="state" id="state-dropdown">
+                                        <option>
+                                            Select State
+                                        </option>
+                                       
+                                       
+                                    </select>
+                                </div>
                                 </div>
                             </div>
                             
@@ -175,11 +216,46 @@
 @endsection
 @section('js')
   <script>
+
+document.getElementById('country_div').style.display = "none";
+document.getElementById('state_div').style.display = "none";
+document.getElementById('organization_div').style.display = "none";
+
+$('#country-dropdown').on('change', function () {
+                var idCountry = this.value;
+                $("#state-dropdown").html('');
+                $.ajax({
+                    url: "{{url('api/fetch-states')}}",
+                    type: "get",
+                    data: {
+                        country_id: idCountry,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        
+                        $('#state-dropdown').html('<option value="">-- Select State --</option>');
+                        $.each(result.states, function (key, value) {
+                            $("#state-dropdown").append('<option value="' + value
+                                .state_id + '">' + value.name + '</option>');
+                        });
+                       
+                    }
+                });
+            });
+
  function showDiv(select){
-   if(select.value==11){
+   
+   if(select.value != 0){
     document.getElementById('hidden_div').style.display = "block";
+    document.getElementById('country_div').style.display = "none";
+    document.getElementById('state_div').style.display = "none";
+    document.getElementById('organization_div').style.display = "none";
    } else{
     document.getElementById('hidden_div').style.display = "none";
+    document.getElementById('country_div').style.display = "block";
+    document.getElementById('state_div').style.display = "block";
+    document.getElementById('organization_div').style.display = "block";
    }
 } 
 </script>

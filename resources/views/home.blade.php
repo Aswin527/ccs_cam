@@ -22,6 +22,14 @@
                 "label" =>$ocategorys->name,
             ];
    }
+
+   foreach($pcategory as $pcategorys){
+        $pcategorycounts = DB::table('donations')->where('donation_type', $pcategorys->id)->count();
+        $pcategorypoints[] = [
+                "y" => $pcategorycounts,
+                "label" => $pcategorys->name,
+        ];
+   }
                 
                 
                 
@@ -64,9 +72,24 @@ var organ = new CanvasJS.Chart("organization", {
 		dataPoints: <?php echo json_encode($organizationpoints, JSON_NUMERIC_CHECK); ?>
 	}]
 });
+var payment = new CanvasJS.Chart("payment", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Financial Graph"
+	},
+	axisY: {
+		title: "Financial Graph (in no)"
+	},
+	data: [{
+		type: "column",
+		yValueFormatString: "#,##0.## no",
+		dataPoints: <?php echo json_encode($pcategorypoints, JSON_NUMERIC_CHECK); ?>
+	}]
+});
 organ.render();
 member.render();
- 
+payment.render(); 
 }
   </script>
 
@@ -161,6 +184,41 @@ member.render();
        </div>
        <div class="col-lg-7 mb-20">
                   <div id="organization" style="height: 180px; width: 100%;"></div>
+
+   </div> 
+   </div> 
+
+   <div class="row">
+    <div class="col-lg-12">
+        <div class="member">
+            <h4>Financial Overview</h4>
+        </div>
+    </div>
+  </div>    
+   <div class="row">
+       
+       <div class="col-lg-5">
+            <div class="row">
+                 <div class="col-md-6">
+                      
+                      <div class="custom icon">
+                        	<h4>{{$payment}}</h4>
+                            <p class="blue">Total Payment Category</p>
+                     </div>
+                    </div>
+                @foreach($pcategory as $pcategory)
+                 <?php $pcategorycount = DB::table('donations')->where('donation_type',$pcategory->id)->count();?>
+                 <div class="col-md-6">
+                      <div class="custom icon">
+                        	<h4>@if($pcategorycount) {{$pcategorycount}} @else 0 @endif</h4>
+                            <p class="blue">{{$pcategory->name}}</p>
+                     </div>
+                    </div>
+                 @endforeach   
+            </div>
+       </div>
+       <div class="col-lg-7 mb-20">
+                  <div id="payment" style="height: 180px; width: 100%;"></div>
 
    </div> 
    </div> 

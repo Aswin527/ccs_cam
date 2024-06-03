@@ -46,18 +46,6 @@
                                                                 </div>
                                                             </div>
                                                             
-                                                            
-                                                             <div class="col-md-12">
-                                                                <div class="mb-3">
-                                                                    <label class="form-label" for="formrow-email-input">Amount</label>
-                                                                    <input type="number" class="form-control" name="amount" id="formrow-email-input">
-                                                                </div>
-                                                            </div>
-                                                            
-                                                             
-                                                            
-                                                        </div>
-                                                        <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="mb-3">
                                                                     <label class="form-label" for="formrow-email-input">Currency</label>
@@ -70,6 +58,19 @@
                                                                      </select>
                                                                 </div>
                                                             </div>
+                                                            
+                                                             <div class="col-md-12">
+                                                                <div class="mb-3">
+                                                                    <label class="form-label" for="formrow-email-input">Amount</label>
+                                                                    <input type="number" class="form-control" name="amount" id="formrow-email-input">
+                                                                </div>
+                                                            </div>
+                                                            
+                                                             
+                                                            
+                                                        </div>
+                                                        <div class="row">
+                                                            
                                                             <div class="col-md-12">
                                                                  <div id="qr">
                                                                      
@@ -83,7 +84,7 @@
                                                             </div>
                                                         </div>
                                                         
-                                                        
+
             
                                                         <div class="mt-4">
                                                             <button type="submit" class="btn btn-primary w-md">Pay Now</button>

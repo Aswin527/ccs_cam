@@ -88,20 +88,20 @@ class PublicPages extends Controller
     }
     
     public function all_video(){
-       $data = Video::get();
+       $data = Video::orderBy('id','DESC')->get();
         //dd($data);
          return view('video')->with('data',$data);  
     }
 
     public function all_image(){
-        $data = Gallery::get();
+        $data = Gallery::orderBy('id','DESC')->get();
          //dd($data);
           return view('image')->with('data',$data);  
      }
 
     public function all_gallery(){
-        $gallery = Gallery::get();
-        $videos = Video::get();
+        $gallery = Gallery::orderBy('id','DESC')->get();
+        $videos = Video::orderBy('id','DESC')->get();
          //dd($data);
          return view('allgallery')->with('video',$videos)->with('gallery',$gallery);
      }
@@ -167,7 +167,8 @@ class PublicPages extends Controller
     
     public function membership(){
         $position = Position::get();
-        return view('membership.create')->with('position',$position);
+        $country = Country::get();
+        return view('membership.create')->with('position',$position)->with('country',$country);
     }
     
     
