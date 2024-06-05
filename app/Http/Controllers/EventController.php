@@ -3,31 +3,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
-use App\Models\Attendance;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class EventController extends Controller
 {
-    public function showAttendanceForm(Event $event)
-    {
-        return view('events.attendance', compact('event'));
-    }
-
-    public function markAttendance(Request $request, Event $event)
-    {
-        $request->validate([
-            'member_id' => 'required|exists:members,id',
-        ]);
-
-        Attendance::create([
-            'event_id' => $event->id,
-            'member_id' => $request->member_id,
-        ]);
-
-        return redirect()->back()->with('success', 'Attendance marked successfully!');
-    }
-
     public function store(Request $request)
     {
+        // Validate the request
         $request->validate([
             'event_name' => 'required|string|max:255',
             'location_event' => 'required|string|max:255',
@@ -37,24 +19,34 @@ class EventController extends Controller
             'about_event' => 'nullable|string',
         ]);
 
-        $event = new Event();
-        $event->event_name = $request->event_name;
-        $event->location_event = $request->location_event;
-        $event->date = $request->date;
-        $event->iframe = $request->iframe;
-        $event->about_event = $request->about_event;
-
+        // Handle the image upload
         if ($request->hasFile('image_event')) {
-            $imageName = time().'.'.$request->image_event->extension();
-            $request->image_event->move(public_path('images'), $imageName);
-            $event->image_event = $imageName;
+            $imagePath = $request->file('image_event')->store('event_images', 'public');
         }
 
-        $event->save();
+        // Create the event
+        $event = Event::create([
+            'event_name' => $request->event_name,
+            'location_event' => $request->location_event,
+            'date' => $request->date,
+            'image_event' => $imagePath ?? null,
+            'iframe' => $request->iframe,
+            'about_event' => $request->about_event,
+        ]);
 
-        return redirect()->route('admin.event-create')->with(['flash_message' => 'Event created successfully!', 'flash_type' => 'success', 'event' => $event]);
+        // Generate the URL for marking attendance
+        $attendanceUrl = route('attendance.mark', ['event_id' => $event->id]);
+
+        // Generate the QR code and save it as an image
+        $qrCodePath = 'qr_codes/' . $event->id . '.png';
+        QrCode::format('png')->size(200)->generate($attendanceUrl, public_path($qrCodePath));
+
+        // Update the event with the QR code path
+        $event->update(['qr_code' => $qrCodePath]);
+
+        // Redirect with a success message
+        return redirect()->back()->with(['flash_message' => 'Event created successfully!', 'flash_type' => 'success']);
     }
-
 }
 
 ?>

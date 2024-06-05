@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -328,9 +328,9 @@ Route::group(['middleware' => 'auth'],function(){
              
              //Event Attendance 
 
-            Route::get('/event/{event}/attendance', [EventController::class, 'showAttendanceForm'])->name('event.attendance');
-            Route::post('/event/{event}/attendance', [EventController::class, 'markAttendance'])->name('event.markAttendance');
-
+             Route::get('/attendance/mark/{event_id}', [AttendanceController::class, 'show'])->name('attendance.mark');
+             Route::post('/attendance/mark/{event_id}', [AttendanceController::class, 'store'])->name('attendance.mark.store');
+                     
              
             
 });
