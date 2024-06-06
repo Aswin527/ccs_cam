@@ -78,11 +78,14 @@ Route::get('/events/{id}','PublicPages@single_events');
 Route::get('//event-detail/{id}','PublicPages@detail_events');
 Route::get('/qrcode/{id}','PublicPages@qrcode_events');
 Route::get('/join-event/{id}','PublicPages@join_event');
+Route::get('/donation_request', 'PublicPages@adddonation_request');
 
+
+Route::post('/donation_request/store', 'UsersController@donation_request_store');
+ 
 
 
 Route::post('/membership/user/store','EnquirysController@memnbershipuserstore');
-Route::post('/donations/store','UsersController@');
 
 Route::get('/search-gallery','PublicPages@visual');
 
@@ -254,7 +257,6 @@ Route::group(['middleware' => 'auth'],function(){
              Route::get('api/fetch-states', 'UsersController@fetchState');
              Route::post('/user/organization/update', 'UsersController@updateorganization');
              Route::get('/user/donation', 'UsersController@donations');
-             Route::get('/user/donations', 'UsersController@adddonations');
              Route::post('/user/donation/store', 'UsersController@donation_store');
              Route::get('/user/membership/card', 'UsersController@membershipcard');
               Route::get('/home/donation/edit/{id}', 'UsersController@donations_edit');
@@ -306,6 +308,7 @@ Route::group(['middleware' => 'auth'],function(){
             Route::get('/home/create/voucher', 'UsersController@create_voucher');
             
             Route::get('/home/receipt', 'UsersController@receipt');
+            Route::get('/home/donation/requests', 'UsersController@donationrequests');
             Route::post('/home/voucher/store', 'UsersController@voucher_store');
              Route::get('/home/voucher/show/{id}', 'UsersController@voucher_show');
              Route::get('/home/receipt/show/{id}', 'UsersController@receipt_show');

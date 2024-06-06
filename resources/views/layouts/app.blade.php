@@ -95,11 +95,11 @@
                         </div>  
                     </div>
                     <div class="top-ribbon__right-top">
-                        <div class="login_btn_div">
+                        <div class="login_btn_div">  
                             <a href="/login" class="login_btn"><span class="fas fa-sign-in"></span>Login</a>
                         </div>
                         <div class="donation_btn_div">
-                            <a href="/user/donation" class="main-menu__btn"> <span class="fa fa-heart"></span>Donate Now</a>
+                            <a href="/donation_request" class="main-menu__btn"> <span class="fa fa-heart"></span>Donate Now</a>
                         </div>
                     </div>
                 </div>

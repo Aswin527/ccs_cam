@@ -19,6 +19,8 @@ use App\Models\Position;
 use App\Models\PaymentCategory;
 use App\Models\Currency;
 use App\Models\Country;
+use App\Models\DonationRequest;
+
 
 use DB;
 use Validator;
@@ -129,7 +131,7 @@ class PublicPages extends Controller
        $data->save();
         Session::flash('flash_type','danger');
         Session::flash('flash_message','Successfully Regsiter in this events... After Admin Approvel You Can Visit in this Event');
-        return back();
+        return back(); 
        
     }
     
@@ -245,6 +247,8 @@ class PublicPages extends Controller
      }
          
     }
+
+
     
       public function productcategoriesss(Request $request , $id){
           
@@ -898,4 +902,28 @@ class PublicPages extends Controller
 
         return abort(404);
     }
+
+
+
+    public function adddonation_request(){ 
+        // if(!Auth::user()){
+        //     Session::flash('flash_type','danger');
+        //      Session::flash('flash_message','You are not Authenticate!');
+        //      return back();  
+        //  } 
+        //  $data = Donation::where('user_id',Auth::user()->id)->get();
+        // $category = PaymentCategory::get();
+        // $currency = Currency::get();
+        $country = Country::get();
+      return view('loginuser.donation.create')->with('country',$country);  
+     }
+
+
+     
+     
+
+    
+    
+    
+
 }

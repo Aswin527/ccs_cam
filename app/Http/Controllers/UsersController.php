@@ -17,6 +17,7 @@ use App\Models\Voucher;
 use App\Models\State;
 use App\Models\Currency;
 use App\Models\Video;
+use App\Models\DonationRequest;
 use Illuminate\Http\Request;
 use Session;
 
@@ -729,18 +730,7 @@ class UsersController extends Controller
       return view('loginuser.donation.view')->with('data',$data)->with('country',$country)->with('currency',$currency)->with('category',$category);  
      }
 
-     public function adddonations(Request $request){
-        if(!Auth::user()){
-            Session::flash('flash_type','danger');
-             Session::flash('flash_message','You are not Authenticate!');
-             return back();  
-         } 
-         $data = Donation::where('user_id',Auth::user()->id)->get();
-        $category = PaymentCategory::get();
-        $currency = Currency::get();
-        $country = Country::get();
-      return view('loginuser.donation.create')->with('country',$country)->with('currency',$currency)->with('category',$category);  
-     }
+     
      
      
      public function donations_show($id){
@@ -748,7 +738,7 @@ class UsersController extends Controller
          $user = User::find($data->user_id);
           $currency =  Currency::find($data->currency);
          return view('donation.show')->with('data',$data)->with('currency',$currency)->with('user',$user);
-     }
+     } 
      
      
      
@@ -776,6 +766,8 @@ class UsersController extends Controller
         
         return back();
      }
+
+     
      
      public function donation_store(Request $request){
          if(!Auth::user()){
@@ -1411,5 +1403,45 @@ class UsersController extends Controller
        }
        
     /*Voucher category End*/
+
+
+    public function donationrequests(){
+        $data = DonationRequest::get();
+        return view('loginuser.donation.show')->with('data',$data);
+       }
+
+
+       public function donation_request_store(Request $request){
+       try {
+        $data = new DonationRequest();
+        $data->name = $request->name; 
+        $data->mobile = $request->phone;
+        $data->email = $request->email;
+        $data->country = $request->country;
+        $data->organization = $request->organization;
+        $data->designation = $request->designation;
+        $data->remarks = $request->input('comments');
+        $data->save();
+        
+        // echo $data->save();
+        // die();
+    
+        Session::flash('flash_type','success');
+        Session::flash('flash_message','Donation Request Send Successfull! Admin Approvel Pending!');
+        
+        return back();
+       }
+       catch (Exception $e) {
+        // Log the error
+        \Log::error('Error occurred while creating event: ' . $e->getMessage());
+
+        // Flash error message and return back
+        Session::flash('flash_type', 'danger');
+        Session::flash('flash_message', 'An error occurred while creating the event. Please try again.');
+        return back();
+    }
+        
+    }
+    
     
 }
