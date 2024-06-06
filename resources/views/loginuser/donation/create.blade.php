@@ -1,11 +1,14 @@
 @extends('layouts.app')
-@section('meta_title','contactus')
-@section('meta_keywords','contactus')
-@section('meta_description','contactus')
+@section('meta_title','DonateNow')
+@section('meta_keywords','DonateNow')
+@section('meta_description','DonateNow')
 @section('content') 
 <style>
     .container-aboutus {
     height:200px;
+}
+.contact-three .container {
+    max-width:1200px;
 }
 </style>
 <section class="">
@@ -28,11 +31,24 @@
                 style="background-image: url(assets/images/shapes/contact-three-shape.png);"></div>
             <div class="container">
                 <div class="section-title text-center">
+                      
+                    @if ( Session::has('flash_message') )
+                        <div class="alert alert-{{ Session::get('flash_type') }} alert-dismissible fade show" role="alert">
+                            <b>{{ Session::get('flash_message') }}</b>
+                            
+                        </div>
+                    @endif
+                   
+                   
+                   
                     <span class="section-title__tagline">Donate Now</span>
                 </div>
+                
                 <div class="contact-page__form-box">
-                    <form action="/donations/store" class="contact-page__form contact-form-validated"
-                        novalidate="novalidate">
+                    
+                    <form action="/donation_request/store" method="POST" 
+                        >
+                        @csrf
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
@@ -57,12 +73,12 @@
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
                                 <select name="country" id="country-dropdown">
-                                        <option>
+                                        <option value="">
                                             Select Country
                                         </option>
                                         @foreach($country as $country )
-                                        <option value="{{$country->country_id}}">{{$country->name}}</option>
-                                        @endforeach
+                                        <option value="{{$country->name}}">{{$country->name}}</option>
+                                        @endforeach 
                                        
                                     </select>
                                 </div>
@@ -83,9 +99,11 @@
                                 </div>
                             </div>
                         </div>
+                                          
+                           
                     </form>
                 </div>
             </div>
-</section>
-       
+        </section>
+        
 @endsection
