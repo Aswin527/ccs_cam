@@ -880,68 +880,68 @@ class UsersController extends Controller
       
 
       public function eventsstore(Request $request)
-{
-    \Log::info('Event creation initiated');
+    {
+        \Log::info('Event creation initiated');
 
-    try {
-        // Authentication check
-        if (!Auth::check()) {
+        try {
+            // Authentication check
+            if (!Auth::check()) {
+                Session::flash('flash_type', 'danger');
+                Session::flash('flash_message', 'You are not authenticated!');
+                return back();
+            }
+
+            \Log::info('User authenticated');
+
+            // Handle the image upload
+            $imagePath = null;
+            if ($request->hasFile('image_event')) {
+                $imagePath = $request->file('image_event')->store('event_images', 'public');
+                \Log::info('Image uploaded to: ' . $imagePath);
+            }
+
+            // Create a new Event instance
+            $event = new Event();
+            $event->event_name = $request->event_name;
+            $event->location_event = $request->location_event;
+            $event->date = $request->date;
+            $event->image_event = $imagePath;
+            $event->iframe = $request->iframe;
+            $event->about_event = $request->about_event;
+
+            // Save the event
+            $event->save();
+            \Log::info('Event saved with ID: ' . $event->id);
+
+            // Generate the URL for marking attendance
+            $attendanceUrl = route('attendance.mark', ['event_id' => $event->id]);
+
+            // Generate the QR code and save it to a file
+            $qrCodePath = 'qr_codes/' . $event->id . '.png';
+            QrCode::format('png')->size(200)->generate($attendanceUrl, public_path($qrCodePath));
+            \Log::info('QR code saved to: ' . $qrCodePath);
+
+            // Update the event with the QR code path
+            $event->update(['qr_code' => $qrCodePath]);
+            \Log::info('Event updated with QR code path');
+
+            // Optionally, print event details to console
+            // $this->printEventDetails($event);
+
+            // Flash success message and return back
+            Session::flash('flash_type', 'success');
+            Session::flash('flash_message', 'Event created successfully!');
+            return back();
+        } catch (Exception $e) {
+            // Log the error
+            \Log::error('Error occurred while creating event: ' . $e->getMessage());
+
+            // Flash error message and return back
             Session::flash('flash_type', 'danger');
-            Session::flash('flash_message', 'You are not authenticated!');
+            Session::flash('flash_message', 'An error occurred while creating the event. Please try again.');
             return back();
         }
-
-        \Log::info('User authenticated');
-
-        // Handle the image upload
-        $imagePath = null;
-        if ($request->hasFile('image_event')) {
-            $imagePath = $request->file('image_event')->store('event_images', 'public');
-            \Log::info('Image uploaded to: ' . $imagePath);
-        }
-
-        // Create a new Event instance
-        $event = new Event();
-        $event->event_name = $request->event_name;
-        $event->location_event = $request->location_event;
-        $event->date = $request->date;
-        $event->image_event = $imagePath;
-        $event->iframe = $request->iframe;
-        $event->about_event = $request->about_event;
-
-        // Save the event
-        $event->save();
-        \Log::info('Event saved with ID: ' . $event->id);
-
-        // Generate the URL for marking attendance
-        $attendanceUrl = route('attendance.mark', ['event_id' => $event->id]);
-
-        // Generate the QR code and save it to a file
-        $qrCodePath = 'qr_codes/' . $event->id . '.png';
-        QrCode::format('png')->size(200)->generate($attendanceUrl, public_path($qrCodePath));
-        \Log::info('QR code saved to: ' . $qrCodePath);
-
-        // Update the event with the QR code path
-        $event->update(['qr_code' => $qrCodePath]);
-        \Log::info('Event updated with QR code path');
-
-        // Optionally, print event details to console
-        $this->printEventDetails($event);
-
-        // Flash success message and return back
-        Session::flash('flash_type', 'success');
-        Session::flash('flash_message', 'Event created successfully!');
-        return back();
-    } catch (Exception $e) {
-        // Log the error
-        \Log::error('Error occurred while creating event: ' . $e->getMessage());
-
-        // Flash error message and return back
-        Session::flash('flash_type', 'danger');
-        Session::flash('flash_message', 'An error occurred while creating the event. Please try again.');
-        return back();
     }
-}
       
     private function printEventDetails($event)
     {
@@ -959,6 +959,17 @@ class UsersController extends Controller
         }
     }
 
+    public function eventsdelete($id){
+        if(!Auth::user()){
+         Session::flash('flash_type','danger');
+          Session::flash('flash_message','You are not Authenticate!');
+          return back();  
+      } 
+        Event::destroy($id);
+        Session::flash('flash_type','warning');
+          Session::flash('flash_message','Events Deleted Successfully!');
+       return back(); 
+    }
       
       public function eventsedit($id){
          if(!Auth::user()){
