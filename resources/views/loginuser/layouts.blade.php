@@ -32,6 +32,40 @@
         <link href="/admin_assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" /> 
         @yield("css")
 
+        <style>
+            .vertical-menu {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            #sidebar-menu {
+                flex: 1; /* Takes up the remaining space */
+            }
+
+            .sidebar-footer {
+                padding: 10px 0;
+                text-align: center;
+                justify-content: unset;
+            }
+
+            .site-footer__social {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .site-footer__social a {
+                color: inherit;
+                text-decoration: none;
+                font-size: 1.5rem; /* Adjust icon size as needed */
+            }
+            /* Responsive styles for minimized sidebar */
+            body[data-sidebar-size="sm"] .site-footer__social {
+               display: none;
+            }
+
+            </style>
     </head>
 
     <body>
@@ -182,21 +216,20 @@
                                 </a>
                             </li>
 
-
-                            
-
-                           
-
-                           
-                          
-
-                           
-
                         </ul>
 
                         
                     </div>
                     <!-- Sidebar -->
+                    <!-- Social Media Icons -->
+                    <div class="sidebar-footer">
+                        <div class="site-footer__social">
+                            <a href="https://www.youtube.com/@ccs-cambodiacambodianchemi2580"><i class="fab fa-youtube"></i></a>
+                            <a href="https://www.facebook.com/ccsphnompenh"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
+                            <!-- <a href="#"><i class="fab fa-instagram"></i></a> -->
+                        </div>                            
+                    </div>
                 </div>
             </div>
             <!-- Left Sidebar End -->

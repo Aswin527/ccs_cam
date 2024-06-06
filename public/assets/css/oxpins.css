@@ -397,6 +397,7 @@ ul {
   transition: all 0.5s linear;
   overflow: hidden;
   z-index: 1;
+  border: none;
 }
 
 .thm-btn:before {
@@ -13460,3 +13461,5 @@ body.boxed-wrapper {
       max-width: 100%;
       height: auto; }
     
+
+      

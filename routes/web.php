@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -329,7 +329,11 @@ Route::group(['middleware' => 'auth'],function(){
              Route::get('/home/testimonials/edit/{id}', 'HomeController@testimonials_edit');
              Route::post('/home/testimonials/update', 'HomeController@testimonials_update');
              
-             
+             //Event Attendance 
+
+             Route::get('/attendance/mark/{event_id}', [AttendanceController::class, 'show'])->name('attendance.mark');
+             Route::post('/attendance/mark/{event_id}', [AttendanceController::class, 'store'])->name('attendance.mark.store');
+                     
              
             
 });

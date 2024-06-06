@@ -41,12 +41,10 @@
                 @else
                 <img src="assets/images/resources/donations-list-img-1.jpg" alt="">
                 @endif
-
-
                 <p class="date">{{$data->date}}</p>
               </a>
               <div class="blog-info">
-                <label class="tag-label red">Business</label>
+                <label class="tag-label red">{{$data->status}}</label>
                 <h4><a href="/events/{{$data->id}}">{{$data->event_name}}</a></h4>
                 <p class="blog-text">{{Str::limit($data->about_event, 100)}}</p>
                 <a href="/events/{{$data->id}}" class="btn btn-news">Know More <span class="fa fa-arrow-right" aria-hidden="true"></span> </a>
