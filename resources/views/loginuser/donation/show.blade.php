@@ -33,12 +33,12 @@
                                                     <tr>
                                                         <td>{{$x}}</td>
                                                         <td>{{$data->name}}</td>
-                                                        <td>{{$data->phone}}</td>
+                                                        <td>{{$data->mobile}}</td>
                                                         <td>{{$data->email}}</td>
                                                         <td>{{$data->country}}</td>
                                                         <td>{{$data->organization}}</td>
                                                          <td>{{$data->designation}}</td>
-                                                         <td>{{$data->remarks}}</td>                                                        
+                                                         <td>{!!nl2br(e($data->remarks))!!}</td>                                                        
                                                       </tr>
                                                     <?php $x++; ?>
                                             @endforeach
