@@ -70,17 +70,6 @@
                             </div>
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
-                                    <input type="text" placeholder="First Name" name="fname">
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="contact-form__input-box">
-                                    <input type="text" placeholder="Last Name" name="lname">
-                                </div>
-                            </div>
-
-                            <div class="col-xl-6">
-                                <div class="contact-form__input-box">
                                     <select name="gender">
                                         <option>
                                             Select Gender
@@ -97,18 +86,37 @@
                                     </select>
                                 </div>
                             </div>
-                             
+
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
-                                    <input type="text" placeholder="Qualification" name="qualification">
+                                    <input type="text" placeholder="First Name" name="fname">
                                 </div>
                             </div>
+                            <div class="col-xl-6">
+                                <div class="contact-form__input-box">
+                                    <input type="text" placeholder="Last Name" name="lname">
+                                </div>
+                            </div>
+
+                            
 
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
                                     <input type="date" placeholder="Date of birth" name="dob">
                                 </div>
                             </div>
+                             
+                            <div class="col-xl-6">
+                                <div class="contact-form__input-box">
+                                    <input type="text" placeholder="Qualification" name="qualification">
+                                </div>
+                            </div>
+                            <div class="col-xl-6" id="organization_div">
+                                <div class="contact-form__input-box">
+                                    <input type="text" placeholder="Organization" name="organization">
+                                </div>
+                            </div>
+                            
                             
                             
                             <div class="col-xl-6">
@@ -116,11 +124,7 @@
                                     <input type="text" placeholder="Department" name="department">
                                 </div>
                             </div>
-                             <div class="col-xl-6">
-                                <div class="contact-form__input-box">
-                                    <input type="text" placeholder="Address" name="address">
-                                </div>
-                            </div>
+                             
                             <div class="col-xl-6" id="country_div">
                                 <div class="contact-form__input-box">
                                    <div class="contact-form__input-box">
@@ -136,23 +140,25 @@
                                 </div>
                                 </div>
                             </div>
-                            <div class="col-xl-6" id="organization_div">
-                                <div class="contact-form__input-box">
-                                    <input type="text" placeholder="Organization" name="organization">
-                                </div>
-                            </div>
+                           
 
                             <div class="col-xl-6" id="state_div">
                                 <div class="contact-form__input-box">
                                    <div class="contact-form__input-box">
                                     <select name="state" id="state-dropdown">
                                         <option>
-                                            Select State
+                                            Select Province
                                         </option>
                                        
                                        
                                     </select>
                                 </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6">
+                                <div class="contact-form__input-box">
+                                    <input type="text" placeholder="Address" name="address">
                                 </div>
                             </div>
                             

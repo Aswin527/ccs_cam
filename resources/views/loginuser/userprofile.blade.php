@@ -23,21 +23,40 @@
     text-align:center;
 }
 
+body {
+        background-color: #e6e6fa; /* Lavender shade */
+    }
+
+    .oval-card {
+  width: 300px; /* Adjust width as needed */
+  height: 150px; /* Adjust height as needed */
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.oval-card .card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 </style>                       
 
 <div class="row">
     <div class="col-12">
-        <div class="card">
+        <div class="card" >
             <div class="card-header">
-                <h1 class="card-title" style="font-size:30px;">Profile 
+                <h1 class="card-title" style="font-size:30px;color:white;">Profile 
                         <a href="/user/edit_profile" class=""><button  style="float:right;" class="btn btn-primary w-md">Edit Profile</button></a>
                     </h1>
             </div>
-            <div class="card-body p-4">
-                <div class="row">
+            <div class="card-body p-4" >
+                <div class="row oval-card">
                     
-                    <div class="card col-md-5">
+                    <div class="card col-md-5 " style="background-color:#734F96;">
                         <div class="profile-image mt-3 mb-5" style="margin-left:150px;">
                             <img class=""   src="/images/{{Auth::user()->photo}}" >
                         </div>
