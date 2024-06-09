@@ -147,7 +147,7 @@
                                    <div class="contact-form__input-box">
                                     <select name="state" id="state-dropdown">
                                         <option>
-                                            Select Province
+                                            Select Province 
                                         </option>
                                        
                                        
@@ -240,7 +240,7 @@ $('#country-dropdown').on('change', function () {
                     dataType: 'json',
                     success: function (result) {
                         
-                        $('#state-dropdown').html('<option value="">-- Select State --</option>');
+                        $('#state-dropdown').html('<option value="">-- Select Province --</option>');
                         $.each(result.states, function (key, value) {
                             $("#state-dropdown").append('<option value="' + value
                                 .state_id + '">' + value.name + '</option>');
