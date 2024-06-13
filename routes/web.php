@@ -70,6 +70,14 @@ Route::get('/publication/search','PublicPages@publications_search');
 
 Route::post('/events/store/memerid','PublicPages@event_membership');
 
+//Event Attendance
+Route::get('/attendance/mark/{event_id}', [AttendanceController::class, 'show'])->name('attendance.mark');
+Route::post('/attendance/mark/{event_id}', [AttendanceController::class, 'store'])->name('attendance.mark.store');
+
+Route::get('/events/{id}/join', [EventController::class, 'show'])->name('events.show');
+Route::post('/events/{id}/join', [EventController::class, 'join'])->name('events.join');
+
+
 Route::get('/membership','PublicPages@membership');
 Route::get('/all-events','PublicPages@all_events');
 Route::get('/all-video','PublicPages@all_video');
@@ -334,14 +342,7 @@ Route::group(['middleware' => 'auth'],function(){
              
              //Event Attendance 
 
-             Route::get('/attendance/mark/{event_id}', [AttendanceController::class, 'show'])->name('attendance.mark');
-             Route::post('/attendance/mark/{event_id}', [AttendanceController::class, 'store'])->name('attendance.mark.store');
             //  Route::post('/events/join/{event_id}', [EventController::class, 'join'])->name('events.join');
-
-            Route::get('/events/{id}/join', [EventController::class, 'show'])->name('events.show');
-            Route::post('/events/{id}/join', [EventController::class, 'join'])->name('events.join');
-
-                     
              
             
 });

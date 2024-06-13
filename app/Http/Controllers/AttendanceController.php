@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\Event;
+use App\Models\Country;
 
 class AttendanceController extends Controller
 {
@@ -12,7 +13,8 @@ class AttendanceController extends Controller
     public function show($event_id)
     {
         $event = Event::findOrFail($event_id);
-        return view('events.mark', compact('event'));
+        $country = Country::get();
+        return view('events.mark', compact('event'))->with('country',$country);
     }
     public function store(Request $request, $eventId)
     {
