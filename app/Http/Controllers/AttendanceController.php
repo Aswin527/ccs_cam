@@ -1,31 +1,47 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Event;
 use App\Models\Attendance;
+use App\Models\Event;
 
 class AttendanceController extends Controller
 {
+
     public function show($event_id)
     {
         $event = Event::findOrFail($event_id);
         return view('events.mark', compact('event'));
     }
-
-    public function store(Request $request, $event_id)
+    public function store(Request $request, $eventId)
     {
-        $request->validate([
-            'member_id' => 'required|string|max:255',
+        // Validate request data
+        $validatedData = $request->validate([
+            'user_type' => 'required|in:member,guest',
+            // Add validation rules for other fields based on user type
         ]);
 
-        Attendance::create([
-            'event_id' => $event_id,
-            'member_id' => $request->member_id,
-        ]);
+        // Create attendance record
+        $attendance = new Attendance();
+        $attendance->event_id = $eventId;
+        $attendance->user_type = $validatedData['user_type'];
 
-        return redirect()->back()->with(['flash_message' => 'Attendance marked successfully!', 'flash_type' => 'success']);
+        // Set fields based on user type
+        if ($validatedData['user_type'] == 'member') {
+            $attendance->member_id = $request->input('member_id');
+            $attendance->remarks = $request->input('member_remarks');
+        } elseif ($validatedData['user_type'] == 'guest') {
+            $attendance->guest_name = $request->input('guest_name');
+            $attendance->guest_phone = $request->input('guest_phone');
+            $attendance->guest_email = $request->input('guest_email');
+            $attendance->remarks = $request->input('guest_remarks');
+        }
+
+        // Save attendance record
+        $attendance->save();
+
+        // Redirect back with success message
+        return redirect()->back()->with('flash_message', 'Thank You Participating!');
     }
 }
-
-?>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -333,6 +334,11 @@ Route::group(['middleware' => 'auth'],function(){
 
              Route::get('/attendance/mark/{event_id}', [AttendanceController::class, 'show'])->name('attendance.mark');
              Route::post('/attendance/mark/{event_id}', [AttendanceController::class, 'store'])->name('attendance.mark.store');
+            //  Route::post('/events/join/{event_id}', [EventController::class, 'join'])->name('events.join');
+
+            Route::get('/events/{id}/join', [EventController::class, 'show'])->name('events.show');
+            Route::post('/events/{id}/join', [EventController::class, 'join'])->name('events.join');
+
                      
              
             

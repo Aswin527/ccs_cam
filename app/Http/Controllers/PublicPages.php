@@ -20,6 +20,8 @@ use App\Models\PaymentCategory;
 use App\Models\Currency;
 use App\Models\Country;
 use App\Models\DonationRequest;
+use App\Models\EventParticipation;
+use Illuminate\Support\Facades\Log;
 
 
 use DB;
@@ -124,16 +126,25 @@ class PublicPages extends Controller
         return view('qrcode')->with('id',$id);
     }
     
-    public function event_membership(Request $request){
-       $data = new EventMember();
-       $data->event_id = $request->event_id;
-       $data->member_id = $request->member_id;
-       $data->save();
-        Session::flash('flash_type','danger');
-        Session::flash('flash_message','Successfully Regsiter in this events... After Admin Approvel You Can Visit in this Event');
-        return back(); 
-       
+
+    public function event_membership(Request $request)
+    {
+            // Validation logic
+            $request->validate([
+                'participant_type' => 'required',
+                // Add other validation rules as needed
+            ]);
+
+            $data = new EventParticipation();
+            $data->event_id = $request->event_id;
+            $data->member_id = $request->member_id;
+
+            $data->save();
+
+            // return redirect()->back()->with('flash_message', 'Thank You Participating!');
+            return redirect()->back()->with('success', 'You have successfully joined the event!');
     }
+
     
     public function login(){
         return view('login');
