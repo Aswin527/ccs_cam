@@ -30,7 +30,7 @@ class HomeController extends Controller
         $organization = Organization::count();
         $donations =  Donation::count();
         $payment = PaymentCategory::count();
-        $pcategory = PaymentCategory::get();
+        $pcategory = PaymentCategory::orderBy('id','DESC')->get();
         $positon =  OrganizationCategory::get(); 
         $donation_info = Donation::get();
         $currency_info = Currency::get();
