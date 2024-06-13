@@ -229,7 +229,7 @@ payment.render();
                 @endforeach 
                  <div class="col-md-6">
                       <div class="custom icon">
-                        	<h4>{{$amount}}</h4>
+                        	<h4>${{$amount}}</h4>
                             <p class="blue">{{$pcategory->name}}</p>
                      </div>
                     </div>

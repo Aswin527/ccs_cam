@@ -224,7 +224,7 @@
                                     <li><a href="/home/bank/category" data-key="t-maintenance">Admin bank</a></li>
                                     <li><a href="/home/voucher" data-key="t-maintenance">Voucher</a></li>
                                      <li><a href="/home/receipt" data-key="t-maintenance">Receipt</a></li>
-                                     <li><a href="/home/donation/requests" data-key="t-maintenance">Donation Request</a></li>
+                                     <!-- <li><a href="/home/donation/requests" data-key="t-maintenance">Donation Request</a></li> -->
                                    
                                 </ul>
                             </li>
