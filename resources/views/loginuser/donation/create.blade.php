@@ -50,6 +50,19 @@
                         >
                         @csrf
                         <div class="row">
+                        <div class="col-xl-6">
+                                <div class="contact-form__input-box">
+                                <select name="gender" id="">
+                                        <option value="">
+                                            Select Gender
+                                        </option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                       
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
                                     <input type="text" placeholder="Your name" name="name">
@@ -77,10 +90,23 @@
                                             Select Country
                                         </option>
                                         @foreach($country as $country )
-                                        <option value="{{$country->name}}">{{$country->name}}</option>
+                                        <option value="{{$country->name}}" country_id="{{$country->country_id}}">{{$country->name}}</option>
                                         @endforeach 
                                        
                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-xl-6" id="state_div">
+                                <div class="contact-form__input-box">
+                                   <div class="contact-form__input-box">
+                                    <select name="state" id="state-dropdown">
+                                        <option>
+                                            Select Province 
+                                        </option>
+                                       
+                                       
+                                    </select>
+                                </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
@@ -106,4 +132,38 @@
             </div>
         </section>
         
+@endsection
+@section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    
+// document.getElementById('state_div').style.display = "none";
+
+$('#country-dropdown').on('change', function () {
+                // var idCountry = this.value;
+                var element = $(this).find('option:selected'); 
+        var idCountry = element.attr("country_id"); 
+                console.log(idCountry);
+                $("#state-dropdown").html('');
+                $.ajax({
+                    url: "{{url('api/get-states')}}",
+                    type: "get",
+                    data: {
+                        country_id: idCountry,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        console.log(result);
+                        $('#state-dropdown').html('<option value="">-- Select Province --</option>');
+                        $.each(result.states, function (key, value) {
+                            $("#state-dropdown").append('<option value="' + value
+                                .name + '">' + value.name + '</option>');
+                        });
+                       
+                    }
+                });
+            });
+</script>
 @endsection

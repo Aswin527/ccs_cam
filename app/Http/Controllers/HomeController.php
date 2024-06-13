@@ -14,6 +14,7 @@ use App\Models\Category;
 use App\Models\Ocategory;
 use App\Models\PaymentCategory;
 use App\Models\OrganizationCategory;
+use App\Models\Currency;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,7 @@ class HomeController extends Controller
         $pcategory = PaymentCategory::get();
         $positon =  OrganizationCategory::get(); 
         $donation_info = Donation::get();
+        $currency_info = Currency::get();
         
         $ocategory = Ocategory::get();
         $category = Category::where('type',1)->count();
@@ -39,7 +41,7 @@ class HomeController extends Controller
         return view('home')->with('user',$user)->with('organization',$organization)
         ->with('donation_info', $donation_info)
         ->with('donations',$donations)->with('category',$category)->with('position',$positon)
-        ->with('ocategory',$ocategory)->with('pcategory',$pcategory)->with('payment',$payment);
+        ->with('ocategory',$ocategory)->with('pcategory',$pcategory)->with('payment',$payment)->with('currency_info', $currency_info);
     }
 
     public function settings(){

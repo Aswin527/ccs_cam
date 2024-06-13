@@ -22,6 +22,8 @@ use App\Models\Country;
 use App\Models\DonationRequest;
 use App\Models\EventParticipation;
 use Illuminate\Support\Facades\Log;
+use App\Models\Organization;
+use App\Models\State;
 
 
 use DB;
@@ -180,8 +182,17 @@ class PublicPages extends Controller
     
     public function membership(){
         $position = Position::get();
-        $country = Country::get();
-        return view('membership.create')->with('position',$position)->with('country',$country);
+        $country = Country::get(); 
+        $organization= Organization::get();
+        return view('membership.create')->with('position',$position)->with('country',$country)->with('organization',$organization);
+    }
+
+    public function getState(Request $request)
+    {
+        $data['states'] = State::where("country_id", $request->country_id)
+                                ->get();
+  
+        return response()->json($data);
     }
     
     

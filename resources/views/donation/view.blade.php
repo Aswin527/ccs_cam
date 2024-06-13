@@ -95,5 +95,59 @@
                                 </div>
                             </div> <!-- end col -->
                      </div>
+
+
+                     <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">All Donation Requests</h4>
+                                    </div>
+                                    <div class="card-body">
+        
+                                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                            <thead>
+                                            <tr>
+                                                <th>Sr.</th>
+                                                <th>Name</th>
+                                                <th>Gender</th>
+                                                <th>Mobile</th>
+                                                <th>Email</th>
+                                                <th>Country</th>
+                                                <th>Province</th>
+                                                <th>Organization</th>
+                                                <th>Designation</th>
+                                                <th>Comments</th>
+                                            </tr>
+                                            </thead>
+        
+        
+                                            <tbody>
+                                                <?php $x=1;?>
+                                                @foreach($donation_requests as $donation_request_data)
+                                                
+                                                    <tr>
+                                                        <td>{{$x}}</td>
+                                                        <td>{{$donation_request_data->name}}</td>
+                                                        <td>{{$donation_request_data->gender}}</td>
+                                                        <td>{{$donation_request_data->mobile}}</td>
+                                                        <td>{{$donation_request_data->email}}</td>
+                                                        <td>{{$donation_request_data->country}}</td>
+                                                        <td>{{$donation_request_data->state}}</td>
+                                                        <td>{{$donation_request_data->organization}}</td>
+                                                         <td>{{$donation_request_data->designation}}</td>
+                                                         <td>{!!nl2br(e($donation_request_data->remarks))!!}</td>                                                        
+                                                      </tr>
+                                                    <?php $x++; ?>
+                                            @endforeach
+                                                         
+                                           
+                                            </tbody>
+                                        </table>
+        
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                     </div>
 @endsection
 

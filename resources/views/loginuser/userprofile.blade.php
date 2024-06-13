@@ -89,7 +89,7 @@
                                     <span class="form-label" for="formrow-email-input">{{$state->name}} </span>
                                 </div>
                                 <div>
-                                    <label class="form-label col-md-3" for="formrow-email-input">Member ID: </label>
+                                    <label class="form-label col-md-3" for="formrow-email-input">Membership No: </label>
                                     
                                         @if(Auth::user()->membership_id == '') 
                                         <span class="form-label" style="color:red;" for="formrow-email-input">Not Available

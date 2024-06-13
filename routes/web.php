@@ -61,7 +61,7 @@ Route::get('/profile','PublicPages@profile');
 //     return view('welcome');
 // });
 
-// Route::get('/membership', function () {
+// Route::get('/membership', function () { 
     
 // return view('membership.create');
 // }); publications   join-event/ 
@@ -80,6 +80,8 @@ Route::get('//event-detail/{id}','PublicPages@detail_events');
 Route::get('/qrcode/{id}','PublicPages@qrcode_events');
 Route::get('/join-event/{id}','PublicPages@join_event');
 Route::get('/donation_request', 'PublicPages@adddonation_request');
+
+Route::get('api/get-states', 'PublicPages@getState');
 
 
 Route::post('/donation_request/store', 'UsersController@donation_request_store');
