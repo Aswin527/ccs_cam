@@ -750,7 +750,8 @@ class UsersController extends Controller
             return back();  
         }
           $data = Donation::get();
-         return view('donation.view')->with('data',$data);
+          $donation_requests = DonationRequest::get();
+         return view('donation.view')->with('data',$data)->with('donation_requests', $donation_requests);
      }
      
      public function status_payments(Request $request){
@@ -1474,6 +1475,8 @@ class UsersController extends Controller
         $data->country = $request->country;
         $data->organization = $request->organization;
         $data->designation = $request->designation;
+        $data->state = $request->state;
+        $data->gender = $request->gender;
         $data->remarks = $request->input('comments');
         $data->save();
         

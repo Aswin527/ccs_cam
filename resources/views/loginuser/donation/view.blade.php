@@ -1,6 +1,9 @@
 @extends('loginuser.layouts')
 @section('meta_title','')
 @section('content')
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
 <div class="row">
                             <div class="col-12">
                                 <div class="card">
@@ -24,7 +27,7 @@
                                     </div>
                                     <div class="card-body p-4">
         
-                                        <form action="/user/donation/store" method="post" enctype="multipart/form-data">
+                                        <form id="payment_form" action="/user/donation/store" method="post" enctype="multipart/form-data">
                                             @csrf             
             
                                                         <div class="row">
@@ -72,9 +75,9 @@
                                                         <div class="row">
                                                             
                                                             <div class="col-md-12">
-                                                                 <div id="qr">
+                                                                 <!-- <div id="qr"> -->
                                                                      
-                                                                 </div>
+                                                                 <!-- </div> -->
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <div class="mb-3">
@@ -87,9 +90,34 @@
 
             
                                                         <div class="mt-4">
-                                                            <button type="submit" class="btn btn-primary w-md">Pay Now</button>
+                                                            <button id="openModalBtn" type="submit" class="btn btn-primary w-md">Get QR</button>
                                                         </div>
+                                                       
+
                                                     </form>
+
+<!-- Modal Start-->
+                                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myModalLabel">QR Scanner</h5>
+                                                                    <button id="close_icon" type="button" class="close btn btn-primary" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div id="qr"></div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button id="close_modal" type="button" class="btn btn-primary" data-dismiss="modal">Pay Now</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Modal End-->
+
                                     </div>
                                 </div>
                             </div> <!-- end col -->
@@ -161,13 +189,30 @@
   <script>
  function showDiv(select){
    if(select.value==1){
-    document.getElementById('qr').innerHTML = "<img src='https://demo.ccs-cam.org/images/usd.jpeg' width='200px'>";
+    document.getElementById('qr').innerHTML = "<center><img src='https://demo.ccs-cam.org/images/usd.jpeg' width='200px'><center>";
    }
    if(select.value==2){
-    document.getElementById('qr').innerHTML = "<img src='https://demo.ccs-cam.org/images/khemer.jpeg' width='200px'>";
+    document.getElementById('qr').innerHTML = "<center><img src='https://demo.ccs-cam.org/images/khemer.jpeg' width='200px'></center>";
    } 
+
+   
    
 } 
+
+    document.getElementById("openModalBtn").addEventListener("click", function() {
+
+        console.log(document.getElementById('currency'));
+        $('#myModal').modal('show'); // Show the modal
+        event.preventDefault();
+    });
+
+    document.getElementById("close_modal").addEventListener("click", function(){
+        $('#myModal').modal('hide');
+        $('#payment_form').submit();
+    });
+    document.getElementById("close_icon").addEventListener("click", function(){
+        $('#myModal').modal('hide');
+    })
 function showDivs(select){
    if(select.value==4){
    document.getElementById('hidden_div').style.display = "block";

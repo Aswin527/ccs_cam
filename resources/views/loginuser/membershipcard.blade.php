@@ -166,7 +166,7 @@
                     <div class="profile-details">
                         <h2 class="profile-username">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h2>
                         <div class="member-info">
-                            <p><strong>Member ID:</strong> {{ Auth::user()->membership_number }}</p>
+                            <p><strong>Membership No:</strong> {{ Auth::user()->membership_number }}</p>
                             <p><strong>Nationality:</strong> {{ Auth::user()->nationality }}</p>
                             <p><strong>Phone:</strong> {{ Auth::user()->mobile }}</p>
                         </div>

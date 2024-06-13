@@ -97,7 +97,7 @@
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="mb-3">
-                                                                    <label class="form-label" for="formrow-email-input">Member ID</label>
+                                                                    <label class="form-label" for="formrow-email-input">Membership No</label>
                                                                    <input type="text" class="form-control" name="membership_id" id="formrow-password-input" value="{{Auth::user()->membership_id}}">
                                                                 </div>
                                                             </div>

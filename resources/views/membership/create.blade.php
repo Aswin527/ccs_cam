@@ -168,7 +168,16 @@
                             <div class="row" >
                             <div class="col-xl-6">
                                 <div class="contact-form__input-box">
-                                    <input type="text" placeholder="Working Organization Name" name="working_organization_name">
+                                <select name="working_organization_name">
+                                        <option value="">
+                                            Select Working Organization Name
+                                        </option>
+                                        @foreach($organization as $organization_details )
+                                          <option value="{{$organization_details->organization_name}}"> {{$organization_details->organization_name}}</option>
+                                        @endforeach
+                                       
+                                    </select>
+                                    <!-- <input type="text" placeholder="Working Organization Name" name="working_organization_name"> -->
                                 </div>
                             </div>
                              <div class="col-xl-6">
@@ -231,7 +240,7 @@ $('#country-dropdown').on('change', function () {
                 var idCountry = this.value;
                 $("#state-dropdown").html('');
                 $.ajax({
-                    url: "{{url('api/fetch-states')}}",
+                    url: "{{url('api/get-states')}}",
                     type: "get",
                     data: {
                         country_id: idCountry,

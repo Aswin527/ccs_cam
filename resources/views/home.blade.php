@@ -30,9 +30,7 @@
                 "label" => $pcategorys->name,
         ];
    }
-                
-                
-                
+       
  
  
 
@@ -207,14 +205,37 @@ payment.render();
                      </div>
                     </div>
                 @foreach($pcategory as $pcategory)
-                 <?php $pcategorycount = DB::table('donations')->where('donation_type',$pcategory->id)->count();?>
+                
+                 <?php $pcategory_details = DB::table('donations') ->leftJoin('currency', 'currency.id', '=', 'donations.currency')
+                ->select('currency.name as currency_name', DB::raw('SUM(donations.amount) as total_amount'))
+                ->where('donations.donation_type', $pcategory->id)
+                ->groupBy('currency')
+                ->get();
+
+
+?>
+                 <?php  $amount = 0; ?>
+                @foreach($pcategory_details as $details)
+                @if($details->currency_name == 'Doller (USD)')
+                    <?php $amount += $details->total_amount; ?>
+                @endif
+                @if($details->currency_name != 'Doller (USD)')
+                @foreach($currency_info as $info)
+                    @if($info->name == $details->currency_name)
+                    <?php $amount += ($details->total_amount*$info->value); ?>
+                    @endif
+                @endforeach
+                @endif
+                @endforeach 
                  <div class="col-md-6">
                       <div class="custom icon">
-                        	<h4>@if($pcategorycount) {{$pcategorycount}} @else 0 @endif</h4>
+                        	<h4>{{$amount}}</h4>
                             <p class="blue">{{$pcategory->name}}</p>
                      </div>
                     </div>
+                   
                  @endforeach   
+                 
             </div>
        </div>
        <div class="col-lg-7 mb-20">

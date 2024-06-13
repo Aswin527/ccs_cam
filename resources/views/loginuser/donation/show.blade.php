@@ -16,9 +16,11 @@
                                             <tr>
                                                 <th>Sr.</th>
                                                 <th>Name</th>
+                                                <th>Gender</th>
                                                 <th>Mobile</th>
                                                 <th>Email</th>
                                                 <th>Country</th>
+                                                <th>Province</th>
                                                 <th>Organization</th>
                                                 <th>Designation</th>
                                                 <th>Comments</th>
@@ -33,9 +35,11 @@
                                                     <tr>
                                                         <td>{{$x}}</td>
                                                         <td>{{$data->name}}</td>
+                                                        <td>{{$data->gender}}</td>
                                                         <td>{{$data->mobile}}</td>
                                                         <td>{{$data->email}}</td>
                                                         <td>{{$data->country}}</td>
+                                                        <td>{{$data->state}}</td>
                                                         <td>{{$data->organization}}</td>
                                                          <td>{{$data->designation}}</td>
                                                          <td>{!!nl2br(e($data->remarks))!!}</td>                                                        
