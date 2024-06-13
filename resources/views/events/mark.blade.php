@@ -79,6 +79,20 @@
                     </div>
                 </div>
                 <div id="guest_fields" class="d-none">
+                <div class="mb-3">
+                <label class="form-label" for="guest_name">Gender</label>
+                                <div class="contact-form__input-box">
+                                <select name="gender" id="">
+                                        <option value="">
+                                            Select Gender
+                                        </option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                       
+                                    </select>
+                                </div>
+                            </div>
                     <div class="mb-3">
                     <div class="contact-form__input-box">
                         <label class="form-label" for="guest_name">Name</label>
@@ -90,6 +104,40 @@
                         @enderror
                     </div>
                     </div>
+                    <div class="mb-3">
+                                <div class="contact-form__input-box">
+                                <label class="form-label" for="guest_name">Country</label>
+                                <select name="country" id="country-dropdown">
+                                        <option value="">
+                                            Select Country
+                                        </option>
+                                        @foreach($country as $country )
+                                        <option value="{{$country->name}}" country_id="{{$country->country_id}}">{{$country->name}}</option>
+                                        @endforeach 
+                                       
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="contact-form__input-box">
+                                <label class="form-label" for="guest_name">Province</label>
+                                   <div class="contact-form__input-box">
+                                    <select name="state" id="state-dropdown">
+                                        <option>
+                                            Select Province 
+                                        </option>
+                                       
+                                       
+                                    </select>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="contact-form__input-box">
+                                <label class="form-label" for="guest_name">Organization</label>
+                                    <input type="text" placeholder="Name of Organization" name="organization">
+                                </div>
+                            </div>
                     <div class="mb-3">
                     <div class="contact-form__input-box">
                         <label class="form-label" for="guest_phone">Phone Number</label>
@@ -158,4 +206,38 @@ document.getElementById('user_type').addEventListener('change', function() {
 });
 </script>
 
+@endsection
+@section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    
+// document.getElementById('state_div').style.display = "none";
+
+$('#country-dropdown').on('change', function () {
+                // var idCountry = this.value;
+                var element = $(this).find('option:selected'); 
+        var idCountry = element.attr("country_id"); 
+                console.log(idCountry);
+                $("#state-dropdown").html('');
+                $.ajax({
+                    url: "{{url('api/get-states')}}",
+                    type: "get",
+                    data: {
+                        country_id: idCountry,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        console.log(result);
+                        $('#state-dropdown').html('<option value="">-- Select Province --</option>');
+                        $.each(result.states, function (key, value) {
+                            $("#state-dropdown").append('<option value="' + value
+                                .name + '">' + value.name + '</option>');
+                        });
+                       
+                    }
+                });
+            });
+</script>
 @endsection
