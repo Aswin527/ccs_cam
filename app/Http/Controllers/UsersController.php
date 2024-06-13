@@ -911,7 +911,7 @@ class UsersController extends Controller
 
             // Generate the QR code and save it to a file
             $qrCodePath = 'qr_codes/' . $event->id . '.png';
-            QrCode::format('png')->size(200)->generate($attendanceUrl, public_path($qrCodePath));
+            QrCode::format('png')->size(300)->eye('circle')->style('dot')->margin(2)->generate($attendanceUrl, public_path($qrCodePath));
             \Log::info('QR code saved to: ' . $qrCodePath);
 
             // Update the event with the QR code path

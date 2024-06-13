@@ -20,7 +20,7 @@
                                                 <th>Event Location</th>
                                                 <th>Event About</th>
                                                 <th>Event Image</th>
-                                              
+                                                <th>QR Code</th>
                                                 <th>Action</th>
                                             </tr>
                                             </thead>
@@ -35,7 +35,7 @@
                                                         <td>{{$event->location_event}}</td>
                                                         <td>{{$event->about_event}}</td>
                                                         <td><a href="/images/{{$event->image_event}}" target="_blank" class="btn btn-success">View</a></td>
-                                                     
+                                                        <td><a href="/{{$event->qr_code}}" target="_blank" class="btn btn-success">View</a></td>
                                                         <td><a href="/home/event/delete/{{$event->id}}" class="btn btn-danger waves-effect btn-label waves-light"><i class="mdi mdi-trash-can label-icon"></i> Delete</a>
                                                         <a href="/home/event/edit/{{$event->id}}" class="btn btn-warning waves-effect btn-label waves-light"><i class="bx bx-edit-alt label-icon"></i> Edit</a>
                                                         </td>
