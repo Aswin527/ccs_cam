@@ -6,15 +6,9 @@
 <style>
     .container-aboutus {
         height: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #f5f5f5;
-        margin-bottom: 20px;
+        
     }
-    .page-header__inner {
-        text-align: center;
-    }
+   
     .thm-breadcrumb {
         margin-bottom: 10px;
     }
@@ -22,9 +16,7 @@
         display: inline;
         margin-right: 5px;
     }
-    .thm-breadcrumb li a {
-        color: #007bff;
-    }
+    
     .contact-page__form-box {
         margin-top: 20px;
     }
@@ -36,16 +28,20 @@
     }
 </style>
 
-<section class="container-aboutus">
-    <div class="page-header__inner">
-        <ul class="thm-breadcrumb list-unstyled">
-            <li><a href="/">Cambodian Chemical Society</a></li>
-            <li><span>></span></li>
-            <li class="active">Contact</li>
-        </ul>
-        <h2>Contact Us</h2>
-    </div>
+<section class="">
+            <div class="container-aboutus">
+            <div class="overlay"></div>
+                <div class="page-header__inner">
+                    <ul class="thm-breadcrumb list-unstyled">
+                        <li><a href="/">Cambodian Chemical Society</a></li>
+                        <li><span>></span></li>
+                        <li class="active">Contact</li>
+                    </ul>
+                    <h2>Contact Us</h2>
+                </div>
+            </div>
 </section>
+
 
 <section class="contact-three">
     <div class="contact-three-shape" style="background-image: url(assets/images/shapes/contact-three-shape.png);"></div>
