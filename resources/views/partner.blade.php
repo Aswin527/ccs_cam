@@ -65,7 +65,7 @@
                         <div class="col-xl-4 col-lg-7 col-md-7 wow fadeInUp" data-wow-delay="100ms">
                             <div class="team-one__single">
                                 <div class="" style="width:105px; margin:auto; text-align: center;">
-                                    <img src="/images/{{$partner->image}}" alt="" width="130" height="130">
+                                    <img src="/images/{{$partner->image}}" alt="" width="130" >
                                 </div>
                                 <!-- <div class="team-one__content">
                                     <h3 class="team-one__name"><a href="#">{{$partner->name}}</a></h3>
