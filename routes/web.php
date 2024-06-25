@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PublicPages;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,17 +44,6 @@ Route::get('/know-more-message-from-president', function () {
 });
 
 
-Route::get('/cc', function () {
-    dd("hihiiiii");
-});
-
-Route::get('/ccdd', function () {
-    dd("sanju");
-});
-
-Route::get('/sanju', function () {
-    dd("sanju");
-});
 
 
 Route::get('/profile','PublicPages@profile');
@@ -68,7 +58,11 @@ Route::get('/profile','PublicPages@profile');
 Route::get('/publications','PublicPages@publications');
 Route::get('/publication/search','PublicPages@publications_search');
 
-Route::post('/events/store/memerid','PublicPages@event_membership');
+//Route::post('/events/store/memerid','PublicPages@event_membership');
+Route::post('/events/store/memerid/{event_id}', [PublicPages::class, 'event_membership'])->name('register.event');
+
+//View Member Details - QR Code
+Route::get('/member/qr_view/{member_id}', [UserController::class, 'membershow'])->name('member_qr.view');
 
 //Event Attendance
 Route::get('/attendance/mark/{event_id}', [AttendanceController::class, 'show'])->name('attendance.mark');
@@ -80,6 +74,7 @@ Route::post('/events/{id}/join', [EventController::class, 'join'])->name('events
 
 Route::get('/membership','PublicPages@membership');
 Route::get('/all-events','PublicPages@all_events');
+Route::get('/all-projects','PublicPages@all_projects');
 Route::get('/all-video','PublicPages@all_video');
 Route::get('/all-image','PublicPages@all_image');
 Route::get('/all-gallery','PublicPages@all_gallery');
@@ -171,6 +166,7 @@ Route::group(['middleware' => 'auth'],function(){
        Route::get('/home/event/delete/{id}', 'UsersController@eventsdelete');
        Route::get('/home/event/edit/{id}', 'UsersController@eventsedit');
        Route::post('/home/our/event/update', 'UsersController@eventsupdate');
+       Route::get('/home/event/participants/{id}', 'UsersController@view_participants');
       
       //Organization   
          Route::get('/home/organization', 'UsersController@organization');

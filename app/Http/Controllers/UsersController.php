@@ -18,6 +18,7 @@ use App\Models\State;
 use App\Models\Currency;
 use App\Models\Video;
 use App\Models\DonationRequest;
+use App\Models\EventParticipation;
 use Illuminate\Http\Request;
 use Session;
 
@@ -366,7 +367,22 @@ class UsersController extends Controller
          $data->status =1;
          $data->type =1;
         $data->save();
-         Session::flash('flash_type','success');
+
+
+        // Generate the URL for marking attendance
+        $memberUrl = route('member_qr.view', ['member_id' => $data->id]);
+
+        // Generate the QR code and save it to a file
+        $memberQrCodePath = 'member_qrcodes/' . $data->id . '.png';
+        QrCode::format('png')->size(300)->eye('circle')->style('dot')->margin(2)->generate($memberUrl, public_path($memberQrCodePath));
+        \Log::info('QR code saved to: ' . $memberQrCodePath);
+
+        // Update the event with the QR code path
+        $data->update(['qr_code' => $memberQrCodePath]);
+
+
+
+        Session::flash('flash_type','success');
         Session::flash('flash_message','Member Created Successfully.');
         
         
@@ -974,6 +990,30 @@ class UsersController extends Controller
         
         return view('events.edit')->with('data',$data);
       }
+
+      public function view_participants($id) {
+        // Check if the user is authenticated
+        if (!Auth::check()) {
+            Session::flash('flash_type', 'danger');
+            Session::flash('flash_message', 'You are not authenticated!');
+            return back();
+        }
+    
+        // Get the event by its ID
+        $event = Event::find($id);
+        if (!$event) {
+            Session::flash('flash_type', 'danger');
+            Session::flash('flash_message', 'Event not found!');
+            return back();
+        }
+    
+        // Get the participants for the event
+        $participants = EventParticipation::where('event_id', $id)->with('user')->get();
+    
+        // Pass the event and participants to the view
+        return view('events.participants', compact('event', 'participants'));
+    }
+    
       
       public function eventsupdate(Request $request){
           if(!Auth::user()){

@@ -173,7 +173,7 @@
                     </div>
                 </div>
                 <div class="barcode">
-                    <img src="/assets/images/dummy-qr.png" alt="QR Code">
+                    <img src="/{{ Auth::user()->qr_code }}" alt="QR Code">
                 </div>
             </article>
             <div class="download-buttons">
