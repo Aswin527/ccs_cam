@@ -86,11 +86,17 @@ class PublicPages extends Controller
         //dd($data);
          return view('events')->with('data',$data);
     }
+
+    public function all_projects(){
+        $data = Event::get();
+        //dd($data);
+         return view('project')->with('data',$data);
+    }
     
     public function join_event($id){
          $data = Event::find($id);
          
-         return view('joinevent')->with('data',$data);
+         return view('events/joinevent')->with('data',$data);
     }
     
     public function all_video(){
@@ -129,23 +135,40 @@ class PublicPages extends Controller
     }
     
 
-    public function event_membership(Request $request)
-    {
-            // Validation logic
-            $request->validate([
-                'participant_type' => 'required',
-                // Add other validation rules as needed
-            ]);
+    public function event_membership(Request $request, $eventId)
+{
+    try {
+        // Create a new participation entry
+        $participation = new EventParticipation();
+        $participation->event_id = $eventId;
+        $participation->user_type = $request->participant_type;
+        $participation->food_preference = $request->food_preference;
 
-            $data = new EventParticipation();
-            $data->event_id = $request->event_id;
-            $data->member_id = $request->member_id;
+        // Assign attributes based on participant type
+        $participation->member_id = $request->member_id ?? null;
+        $participation->remarks = $request->participant_type == 'member' ? $request->remarks_member : $request->remarks_guest;
+        $participation->guest_name = $request->guest_name ?? '-';
+        $participation->guest_organization = $request->guest_organization ?? '-';
+        $participation->guest_phone = $request->guest_phone ?? '-';
+        $participation->guest_email = $request->guest_email ?? '-';
 
-            $data->save();
+        // Save the participation entry
+        $participation->save();
 
-            // return redirect()->back()->with('flash_message', 'Thank You Participating!');
-            return redirect()->back()->with('success', 'You have successfully joined the event!');
+        return redirect()->back()->with('flash_message', 'Thank You Joining!');
+        
+    } catch (\Exception $e) {
+        // Log detailed error for further debugging
+        \Log::error('Event membership error: ', ['exception' => $e]);
+
+        return redirect()->back()->with([
+            'flash_message' => 'An error occurred while joining the event. Please try again later.',
+            'flash_type' => 'danger'
+        ]);
     }
+}
+
+
 
     
 

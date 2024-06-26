@@ -15,7 +15,7 @@ class User extends Authenticatable
         'firstname','lastname','mobile','email','password','cpass','gender','department','dob',
         'photo','national_id','national_photo','norganization','porganization','status',
         'member_category','organization','membership_number','country','state','nationality',
-        'qualification','membership_id','bank_name','bank_holder_name','ifsc_code','swift_code','ban_number','account_number'
+        'qualification','membership_id','bank_name','bank_holder_name','ifsc_code','swift_code','ban_number','account_number','id','qr_code'
     ];
 
     protected $hidden = [

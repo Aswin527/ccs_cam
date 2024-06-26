@@ -67,6 +67,16 @@
                     </div>
                     </div>
                     <div class="mb-3">
+                        <div class="contact-form__input-box">
+                        <label class="form-label" for="food_preference">Food Preference</label>
+                            <select name="food_preference" required>
+                                <option value="">Select Food Preference</option>
+                                <option value="veg">Veg</option>
+                                <option value="nonveg">Non-Veg</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
                     <div class="contact-form__input-box">
                         <label class="form-label" for="member_remarks">Remarks</label>
                         <textarea class="form-control @error('member_remarks') is-invalid @enderror" name="member_remarks" id="member_remarks"></textarea>
@@ -159,6 +169,16 @@
                             </div>
                         @enderror
                     </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="contact-form__input-box">
+                        <label class="form-label" for="food_preference">Food Preference</label>
+                            <select name="food_preference" required>
+                                <option value="">Select Food Preference</option>
+                                <option value="veg">Veg</option>
+                                <option value="nonveg">Non-Veg</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3">
                     <div class="contact-form__input-box">
