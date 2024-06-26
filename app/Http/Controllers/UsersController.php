@@ -18,6 +18,7 @@ use App\Models\State;
 use App\Models\Currency;
 use App\Models\Video;
 use App\Models\DonationRequest;
+use App\Models\Projects;
 use Illuminate\Http\Request;
 use Session;
 
@@ -1499,6 +1500,117 @@ class UsersController extends Controller
     }
         
     }
-    
+
+
+
+    public function add_projects(){
+        if(!Auth::user()){
+          Session::flash('flash_type','danger');
+           Session::flash('flash_message','You are not Authenticate!');
+           return back();  
+       }
+     
+        return view('projects.create');
+     }
+
+
+     public function projectsstore(Request $request)
+    {
+        \Log::info('Project creation initiated');
+
+        try {
+            // Authentication check
+            if (!Auth::check()) {
+                Session::flash('flash_type', 'danger');
+                Session::flash('flash_message', 'You are not authenticated!');
+                return back();
+            }
+
+            \Log::info('User authenticated');
+
+            // Handle the image upload
+            $imagePath = null;
+            $project = new Projects();
+            if($request->hasfile('project_image')){
+                $file=$request->file('project_image');
+                $ext=$file->getClientOriginalExtension();
+                $file_name=time().'.'.$ext;
+                $file->move('images',$file_name);
+                $project->project_image = $file_name;
+            }
+
+            $x=1;
+            $sub_image_names = '';
+            $delimiter = '';
+            for($x=1;$request->hasfile('project_sub_image_'.$x);$x++){
+                $file=$request->file('project_sub_image_'.$x);
+                $ext=$file->getClientOriginalExtension();
+                $uniq_no = rand ( 1000 , 9999 );
+                $file_name=time().$uniq_no.'.'.$ext;
+                $file->move('images',$file_name);
+                $sub_image_names = $sub_image_names.$delimiter.$file_name;
+                $delimiter = ',';
+            }
+
+            $project->project_sub_images = $sub_image_names;
+
+            // if ($request->hasFile('project_image')) {
+            //     $imagePath = $request->file('project_image')->store('project_image', 'public');
+            //     \Log::info('Image uploaded to: ' . $imagePath);
+            // }
+
+            // Create a new Event instance
+           
+            $project->project_name = $request->project_name;
+            $project->project_category = $request->project_category;
+            $project->project_location = $request->project_location;
+            $project->date = $request->date;
+            // $project->project_image = $imagePath;
+            $project->iframe = $request->iframe;
+            $project->about_project = $request->about_project;
+
+            // Save the event
+            $project->save();
+            \Log::info('Project saved with ID: ' . $project->id);
+
+            // Flash success message and return back
+            Session::flash('flash_type', 'success');
+            Session::flash('flash_message', 'Project created successfully!');
+            return back();
+        } catch (Exception $e) {
+            // Log the error
+            \Log::error('Error occurred while creating project: ' . $e->getMessage());
+
+            // Flash error message and return back
+            Session::flash('flash_type', 'danger');
+            Session::flash('flash_message', 'An error occurred while creating the project. Please try again.');
+            return back();
+        }
+    }
+
+
+    //Get Projects
+    public function projects(){
+        if(!Auth::user()){
+          Session::flash('flash_type','danger');
+           Session::flash('flash_message','You are not Authenticate!');
+           return back();  
+       }
+       $project = Projects::orderBy('id','DESC')->get();
+        return view('projects.view')->with('project',$project);
+     }
+
+     //Delete Project
+     public function projectsdelete($id){
+        if(!Auth::user()){
+         Session::flash('flash_type','danger');
+          Session::flash('flash_message','You are not Authenticate!');
+          return back();  
+      } 
+        Projects::destroy($id);
+        Session::flash('flash_type','warning');
+          Session::flash('flash_message','Project Deleted Successfully!');
+       return back(); 
+    }
     
 }

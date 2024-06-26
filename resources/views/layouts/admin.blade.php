@@ -300,6 +300,18 @@
                                    
                                 </ul>
                             </li>
+                            <li>
+                                <a href="#" class="has-arrow">
+                                    <i data-feather="box"></i>
+                                   
+                                    <span data-key="t-forms">Projects</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="/home/create/projects" data-key="t-form-elements">Add Project</a></li>
+                                    <li><a href="/home/projects" data-key="t-form-validation">View Project</a></li>
+                                   
+                                </ul>
+                            </li>
                              <li>  
 
                                 <a href="/home/video">

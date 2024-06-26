@@ -165,12 +165,18 @@ Route::group(['middleware' => 'auth'],function(){
       Route::post('/home/country/update', 'UsersController@country_update');
       
       //home events     
-        Route::get('/home/create/events', 'UsersController@add_events');
+       Route::get('/home/create/events', 'UsersController@add_events');
        Route::get('/home/events', 'UsersController@events');
        Route::post('/home/our/event/store', 'UsersController@eventsstore');
        Route::get('/home/event/delete/{id}', 'UsersController@eventsdelete');
        Route::get('/home/event/edit/{id}', 'UsersController@eventsedit');
        Route::post('/home/our/event/update', 'UsersController@eventsupdate');
+
+       //home projects 
+       Route::get('/home/create/projects', 'UsersController@add_projects');
+       Route::post('/home/our/projects/store', 'UsersController@projectsstore');
+       Route::get('/home/projects', 'UsersController@projects');
+       Route::get('/home/projects/delete/{id}', 'UsersController@projectsdelete');
       
       //Organization   
          Route::get('/home/organization', 'UsersController@organization');
