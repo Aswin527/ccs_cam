@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Organization;
 use App\Models\State;
 
+use App\Models\Projects;
+
 
 use DB;
 use Validator;
@@ -88,7 +90,7 @@ class PublicPages extends Controller
     }
 
     public function all_projects(){
-        $data = Event::get();
+        $data = Projects::get();
         //dd($data);
          return view('project')->with('data',$data);
     }
@@ -123,6 +125,12 @@ class PublicPages extends Controller
          
          return view('eventsid')->with('data',$data);
     }
+
+    public function single_project($id){
+        $data = Projects::find($id);
+        
+        return view('projectid')->with('data',$data);
+   }
     
     public function detail_events($id){
         $data = Event::find($id);
