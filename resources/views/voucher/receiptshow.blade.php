@@ -4,7 +4,7 @@
  <link rel="stylesheet" href="/invoice/css/style.css">
  <style>
     .voucher-container {
-        background-color: #f9f9f9;
+        background-color: #fff;
         font-family: 'Arial', sans-serif;
         padding: 20px;
         border-radius: 10px;
