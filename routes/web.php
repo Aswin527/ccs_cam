@@ -166,6 +166,7 @@ Route::group(['middleware' => 'auth'],function(){
        Route::post('/home/our/event/store', 'UsersController@eventsstore');
        Route::get('/home/event/delete/{id}', 'UsersController@eventsdelete');
        Route::get('/home/event/edit/{id}', 'UsersController@eventsedit');
+       Route::get('/home/event/participants/{id}', 'UsersController@view_participants');
        Route::post('/home/our/event/update', 'UsersController@eventsupdate');
 
        //home projects 

@@ -16,7 +16,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ url('/lms/login') }}">
+                    <form method="POST" action="{{ url('/admin') }}">
                         @csrf
 
                         <div class="form-group row">
