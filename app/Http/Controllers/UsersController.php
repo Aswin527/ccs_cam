@@ -1570,6 +1570,7 @@ class UsersController extends Controller
             // Handle the image upload
             $imagePath = null;
             $project = new Projects();
+            $removed_images = explode(",",$request->removed_images);
             if($request->hasfile('project_image')){
                 $file=$request->file('project_image');
                 $ext=$file->getClientOriginalExtension();
@@ -1578,20 +1579,35 @@ class UsersController extends Controller
                 $project->project_image = $file_name;
             }
 
-            $x=1;
-            $sub_image_names = '';
-            $delimiter = '';
-            for($x=1;$request->hasfile('project_sub_image_'.$x);$x++){
-                $file=$request->file('project_sub_image_'.$x);
-                $ext=$file->getClientOriginalExtension();
-                $uniq_no = rand ( 1000 , 9999 );
-                $file_name=time().$uniq_no.'.'.$ext;
-                $file->move('images',$file_name);
-                $sub_image_names = $sub_image_names.$delimiter.$file_name;
-                $delimiter = ',';
+            // $x=1;
+            // $sub_image_names = '';
+            // $delimiter = '';
+            // for($x=1;$request->hasfile('project_sub_image_'.$x);$x++){
+            //     $file=$request->file('project_sub_image_'.$x);
+            //     $ext=$file->getClientOriginalExtension();
+            //     $uniq_no = rand ( 1000 , 9999 );
+            //     $file_name=time().$uniq_no.'.'.$ext;
+            //     $file->move('images',$file_name);
+            //     $sub_image_names = $sub_image_names.$delimiter.$file_name;
+            //     $delimiter = ',';
+            // }
+
+            $images=array();
+            if($files=$request->file('project_sub_image')){
+                foreach($files as $file){
+                    $name=$file->getClientOriginalName();
+                    if(in_array($name, $removed_images)){
+                        continue;
+                    }
+                    else{
+                        $file->move('images',$name);
+                        $images[]=$name;
+                    }
+                    
+                }
             }
 
-            $project->project_sub_images = $sub_image_names;
+            $project->project_sub_images = implode(",",$images);
 
             // if ($request->hasFile('project_image')) {
             //     $imagePath = $request->file('project_image')->store('project_image', 'public');
@@ -1607,7 +1623,7 @@ class UsersController extends Controller
             // $project->project_image = $imagePath;
             $project->iframe = $request->iframe;
             $project->about_project = $request->about_project;
-
+echo $request;
             // Save the event
             $project->save();
             \Log::info('Project saved with ID: ' . $project->id);
@@ -1646,9 +1662,20 @@ class UsersController extends Controller
           Session::flash('flash_message','You are not Authenticate!');
           return back();  
       } 
+    //   $sub_images = Projects::where('id','=',$id)->get(['project_sub_images']);
+
         Projects::destroy($id);
         Session::flash('flash_type','warning');
           Session::flash('flash_message','Project Deleted Successfully!');
+
+        //   if($sub_images != '') {
+        //      $sub_images_arr = implode(',', $sub_images);
+        //      foreach($sub_images_arr as $img) {
+        //         $image_path = "/images/".$img;  // Value is not URL but directory file path
+        //         unlink($image_path);
+
+        //      }
+        //   }
        return back(); 
     }
     

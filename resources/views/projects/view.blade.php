@@ -37,8 +37,12 @@
                                                         <td>{{$projects->project_category}}</td>
                                                         <td>{{$projects->project_location}}</td>
                                                         <td>{{$projects->about_project}}</td>
-                                                        <td><a href="/images/{{$projects->project_image
-                                                        }}" target="" class="btn btn-success">View</a></td>
+                                                        <td>
+                                                            @if($projects->project_image)
+                                                        <a href="/images/{{$projects->project_image
+                                                        }}" target="" class="btn btn-success">View</a>
+                                                    @endif 
+                                                </td>
                                                         </td>
                                                         <td>
                                                        
