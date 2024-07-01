@@ -9,6 +9,7 @@ use App\Models\Testimonial;
 use App\Models\Slug;
 use App\Models\Event;
 use App\Models\Gallery;
+use App\Models\Projects;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,8 +29,9 @@ class CategoriesController extends Controller
        $testimonials = Testimonial::get();
        $gallery = Gallery::get();
        $event = Event::get();
+       $project = Projects::get();
        return view('welcome')->with('cat',$categroy)
-       ->with('proc',$cat)->with('slider',$slider)->with('setting',$setting)->with('testimonial',$testimonials)->with('gallery',$gallery)->with('events',$event);
+       ->with('proc',$cat)->with('slider',$slider)->with('setting',$setting)->with('testimonial',$testimonials)->with('gallery',$gallery)->with('events',$event)->with('project',$project);
     }
 
     public function store(Request $request){
