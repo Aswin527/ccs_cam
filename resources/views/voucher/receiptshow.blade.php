@@ -1,97 +1,150 @@
 @extends('layouts.admin')
 @section('title','Voucher | Home')
-@section('content')
 @section('css')
  <link rel="stylesheet" href="/invoice/css/style.css">
+ <style>
+    .voucher-container {
+        background-color: #fff;
+        font-family: 'Arial', sans-serif;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 20px auto;
+    }
+    .voucher-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+    }
+    .voucher-header h2 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .owner, .customer, .details, .amounts, .thanks {
+        margin: 20px 0;
+    }
+    .details p, .amounts p, .thanks p {
+        margin: 5px 0;
+    }
+    .details img {
+        width: 150px;
+    }
+    .thanks {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .footer-img img {
+        width: 100%;
+        height: auto;
+        border-top: 2px solid #ddd;
+        padding-top: 10px;
+    }
+    .download-btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .download-btn button {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .download-btn button:hover {
+        background-color: #0056b3;
+    }
+ </style>
 @endsection
 
-
-
-<div class="quatation" style="backgound-color:#f8f8f8">
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h2 class="quatation-header">
-          PAYMENT RECEIPT
-        </h2>
-      </div>
-      <div class="col-lg-6">
-        <div class="owner">
-
-          <p>Cambodian Chemical Society </p>
-          <p> No 72, Street 598, Boeung Kak II, Toul Kork, Phnom Penh, Cambodia </p>
-          <p> info@ccs-cam.org </p>
-          <p> <b>No.</b> : (855)16 839 279 </p>
-
+@section('content')
+<div class="voucher-container" id="voucher">
+    <div class="voucher-header">
+        <div>
+            <h2>PAYMENT RECEIPT</h2>
         </div>
-        <div class="customer">
-          <h4>To : </h4>
-          <p>{{@$user->firstname}}{{@$user->lastname}} </p>
-
-          <p><b>Contact Person :</b>{{@$user->mobile}} </p>
-          <p> <b>Email : </b>{{@$user->email}} </p>
-
+        <div>
+            <img src="/assets/images/logo.jpg" alt="Logo">
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="cotation">
-          <img width="150px" src="/assets/images/logo.jpg">
-          <p><b>DATE : </b>{{$data->date}}</p>
-          <p><b>VOUCHER NO. : </b>#{{$data->id}}</p>
-
-        </div>
-      </div>
-      <?php $amount= abs($data->amount);?>
-      <div class="col-lg-12">
-        <div class="pay">
-          <h4>PAYMENT RECEIPT</h4>
-          <div class="pa">
-            <p><b>RECEIVED AMOUNT:</b> {{$amount}} </p>
-            <p><b>AMOUNT IN WORDS:</b>{{ucwords((new NumberFormatter('en_IN',
-              NumberFormatter::SPELLOUT))->format($amount))}}</p>
-            <p><b>PAYMENT MODE:</b> {{$data->payment_category}}</p>
-            <p><b>CURRENCY :</b> {{$currency->name}}</p>
-
-            <p><b>BEING:</b> {{$data->remarks}}</p>
-
-            <h4>THANKS FOR DOING BUSINESS WITH US.</h4>
-            <div class="pharma">
-              <img src="/public/img/img18.jpg">
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
-
-
+    <div class="owner">
+        <p><strong>Cambodian Chemical Society</strong></p>
+        <p>No 72, Street 598, Boeung Kak II, Toul Kork, Phnom Penh, Cambodia</p>
+        <p>info@ccs-cam.org</p>
+        <p><strong>No.:</strong> (855)16 839 279</p>
+    </div>
+    <div class="customer">
+        <h4>To:</h4>
+        <p>{{@$user->firstname}}{{@$user->lastname}}</p>
+        <p><strong>Contact Person:</strong>{{@$user->mobile}}</p>
+        <p><strong>Email:</strong>{{@$user->email}}</p>
+    </div>
+    <div class="details">
+        <p><strong>Date:</strong> {{$data->date}}</p>
+        <p><strong>Voucher No.:</strong> #{{$data->id}}</p>
+    </div>
+    <div class="amounts">
+        <?php $amount = abs($data->amount); ?>
+        <p><strong>Received Amount:</strong> {{$amount}}</p>
+        <p><strong>Amount in Words:</strong> {{ucwords((new NumberFormatter('en_IN', NumberFormatter::SPELLOUT))->format($amount))}}</p>
+        <p><strong>Payment Mode:</strong> {{$data->payment_category}}</p>
+        <p><strong>Currency:</strong> {{$currency->name}}</p>
+        <p><strong>Being:</strong> {{$data->remarks}}</p>
+    </div>
+    <div class="thanks">
+        <p>THANKS YOU.</p>
+    </div>
+    
 </div>
-
-
-
-
-
-
-
-
-
+<div class="download-btn">
+    <button onclick="downloadPDF()">Download PDF</button>
+</div>
 @endsection
 
 @section('js')
  <script src="/invoice/js/jquery.min.js"></script>
-          <script src="/invoice/js/jspdf.min.js"></script>
-          <script src="/invoice/js/html2canvas.min.js"></script>
-          <script src="/invoice/js/main.js"></script>
-  <script>
- 
-function showDiv(select){
-   if(select.value== "Bank"){
-   document.getElementById('hidden_div').style.display = "block";
-   } else{
-    document.getElementById('hidden_div').style.display = "none";
-   }
-   } 
-</script>
+ <script src="/invoice/js/jspdf.min.js"></script>
+ <script src="/invoice/js/html2canvas.min.js"></script>
+ <script src="/invoice/js/main.js"></script>
+ <script>
+    function showDiv(select){
+        if(select.value == "Bank"){
+            document.getElementById('hidden_div').style.display = "block";
+        } else {
+            document.getElementById('hidden_div').style.display = "none";
+        }
+    }
+
+    function downloadPDF() {
+        const voucher = document.getElementById('voucher');
+        html2canvas(voucher).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const imgWidth = 210;
+            const pageHeight = 295;
+            const imgHeight = canvas.height * imgWidth / canvas.width;
+            let heightLeft = imgHeight;
+            let position = 0;
+
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+
+            while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+
+            pdf.save('payment_receipt.pdf');
+        });
+    }
+ </script>
 @endsection

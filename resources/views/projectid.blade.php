@@ -149,6 +149,7 @@ button {
                 <header class="event-header">
                     <h1 id="event-name">{{ $data->project_name }}</h1>
                     <p id="event-date"><b>Date:</b> {{ $data->date }}</p>
+                    <p id="event-location"><b>Type:</b> {{ $data->project_category }}</p>
                     <p id="event-location"><b>Location:</b> {{ $data->project_location }}</p>
                 </header>
             </div>

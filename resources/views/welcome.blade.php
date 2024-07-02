@@ -20,6 +20,20 @@
     
 }
 }
+
+
+
+label.tag-label {
+  padding: 5px 16px;
+  display: inline-block;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 15px; }
+
+label.tag-label.red {
+  background: var(--oxpins-base);
+  color: #fff; }
    
 </style>
 
@@ -132,7 +146,8 @@
         
         
         <!--Events Page Start-->
-            <section class="events-carousel-page">
+        
+        <section class="events-carousel-page">
             <div class="container">
                  <div class="section-title text-center">
                     <span class="section-title__tagline">News &amp; Events</span>
@@ -192,7 +207,69 @@
             </div>
         </section>
         <!--Events Page End-->
-        
+
+        <!--Projects Page Start-->
+        <section class="events-carousel-page">
+            <div class="container">
+                 <div class="section-title text-center">
+                    <span class="section-title__tagline">Projects</span>
+                </div>
+                <div class="events-carousel thm-owl__carousel owl-theme owl-carousel carousel-dot-style"
+                    data-owl-options='{
+                    "items": 3,
+                    "margin": 30,
+                    "smartSpeed": 700,
+                    "loop":true,
+                    "autoplay": 6000,
+                    "nav":false,
+                    "dots":false,
+                    "navText": ["<span class=\"fa fa-angle-left\"></span>","<span class=\"fa fa-angle-right\"></span>"],
+                    "responsive":{
+                        "0":{
+                            "items":1
+                        },
+                        "768":{
+                            "items":2
+                        },
+                        "992":{
+                            "items": 3
+                        }
+                    }
+                }'>
+                     @foreach($project as $project) 
+                         <div class="item">
+                        <!--Events One Single Start-->
+                        <div class="events-one__single">
+                            <div class="events-one__img">
+                                 @if($project->project_image)
+                                    <img src="/images/{{$project->project_image}}" alt="">
+                                    @else
+                                    <img src="/assets/images/resources/donations-list-img-1.jpg" alt="">
+                                @endif
+                                
+                                <div class="events-one__content">
+                                <label class="tag-label red">{{$project->project_category}}</label>
+                                    <ul class="list-unstyled events-one__meta">
+                                       
+                                        <li><i class="fas fa-map-marker-alt"></i>{{$project->project_location}}</li>
+                                    </ul>
+                                    
+                                    <h3 class="events-one__title"><a href="/projectid/{{$project->id}}">{{$project->project_name}}</a></h3>
+                                    <a href="/projectid/{{$project->id}}" class="view" target="_blink">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Events One Single End-->
+                    </div>
+                      @endforeach 
+                </div>
+                <div class="become-volunteer-one__btn-box tt">
+                        <a href="/all-projects" class="thm-btn become-volunteer-one__btn">View all Projects</a>
+                    </div>
+            </div>
+        </section>
+        <!--Projects Page End-->
+
          <?php 
                                 $category =  DB::table('categories')->where('status',1)->get(); 
                                 ?>

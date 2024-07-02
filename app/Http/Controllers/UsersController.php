@@ -19,6 +19,7 @@ use App\Models\Currency;
 use App\Models\Video;
 use App\Models\DonationRequest;
 use App\Models\Projects;
+use App\Models\EventParticipation;
 use Illuminate\Http\Request;
 use Session;
 
