@@ -1678,5 +1678,18 @@ echo $request;
         //   }
        return back(); 
     }
+
+    public function payment_dashboard() {
+        $donation_info = Donation::get();
+        $pcategory = PaymentCategory::orderBy('id','DESC')->get();
+        $currency_info = Currency::get();
+        $donations =  Donation::orderBy('id', 'DESC')->get();
+        $receipt =  Voucher::where('category','Receipt')->get();
+        $voucher =  Voucher::where('category','Voucher')->get();
+
+
+        return view('paymentdashboard')->with('donation_info',$donation_info)->with('pcategory',$pcategory)->with('currency_info',$currency_info)
+        ->with('donations',$donations)->with('receipt',$receipt)->with('voucher',$voucher);
+    }
     
 }

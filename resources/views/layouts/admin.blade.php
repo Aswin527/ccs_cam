@@ -160,6 +160,13 @@
                             </li>
 
                             <li>
+                                <a href="/lms/paymentdashboard">
+                                    <i data-feather="layers"></i>
+                                    <span data-key="t-dashboard">Payments Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="javascript: void(0);" class="has-arrow">
                                     <i data-feather="grid"></i>
                                     <span data-key="t-apps">Membership Master</span>

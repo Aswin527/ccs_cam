@@ -138,7 +138,7 @@ Route::group(['middleware' => 'auth'],function(){
       //all payments show here  
       Route::get('/home/user/all/payments', 'UsersController@all_paymenst');
        Route::post('/home/all/payments/status', 'UsersController@status_payments');
-      
+       Route::get('/lms/paymentdashboard', 'UsersController@payment_dashboard');
        //Organization Category     
      Route::get('/home/organization/cateory/position', 'UsersController@organization_category_positions');
      Route::post('/home/our/position/cateory/store', 'UsersController@organization_positions_category_store');
