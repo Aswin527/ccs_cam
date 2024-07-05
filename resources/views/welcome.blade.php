@@ -48,7 +48,7 @@ label.tag-label.red {
                 <div class="carousel-inner">
                     @foreach ($slider as $key => $sliderItem)
                     <div class="carousel-item {{ $key == 0 ? 'active':'' }}">
-                    <div class="slider-overlay"></div> <!-- Overlay -->
+                    
                         <img src="images/{{$sliderItem->image}}" class="slider_img d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <h1>{{$sliderItem->title}}</h1>
