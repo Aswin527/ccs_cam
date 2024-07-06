@@ -55,6 +55,35 @@
   --bs-gutter-x: 30px;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+    font-size: 62.5%;
+    font-size: 10px;
+}
+
+
+
+.myH2 {
+	text-align:center;
+	font-size: 4rem;
+}
+.myP {
+	text-align: justify;
+	padding-left:15%;
+	padding-right:15%;
+	font-size: 20px;
+}
+@media all and (max-width:700px){
+	.myP {
+		padding:2%;
+	}
+}
+
 .season_tabs {
   position: relative;   
   min-height: 360px; /* This part sucks */
@@ -293,7 +322,7 @@ ul {
 
 /* Image Slider*/
 .slider_img{
-  height: 530px;
+  height: 545px;
   width: 100%;
 }
 
@@ -593,7 +622,7 @@ ul {
 .top-ribbon{
   display: flex;
   background-color: #00715D;
-  height: 3rem;
+  height: 5rem;
   width: 100%;
 }
 
@@ -8263,7 +8292,7 @@ body.locked .page-wrapper {
 .container-aboutus {
   position: relative;
   width: 100%;
-  height: 300px; /* Adjust the height as needed */
+  height: 250px; /* Adjust the height as needed */
   background: url('your-background-image.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;

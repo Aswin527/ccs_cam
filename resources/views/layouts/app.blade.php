@@ -56,8 +56,9 @@
 
  <body class="custom-cursor">
  <div class="page-wrapper">
+
  <header class="main-header">
-            <nav class="main-menu">
+ <nav class="main-menu">
                 <div class="top-ribbon">
                     <div class="top-ribbon__left">
                         <div class="main-menu__right-top-address">
@@ -209,7 +210,8 @@
             </div>
             
         </footer>
- </div>   
+ </div>  
+ 
      <script src="/assets/vendors/jquery/jquery-3.6.0.min.js"></script>
     <script src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/vendors/jarallax/jarallax.min.js"></script>

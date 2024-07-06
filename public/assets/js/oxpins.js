@@ -490,7 +490,7 @@
     $(".mobile-nav__toggler").on("click", function (e) {
       e.preventDefault();
       $(".mobile-nav__wrapper").toggleClass("expanded");
-      $("body").toggleClass("locked");
+      
     });
   }
 

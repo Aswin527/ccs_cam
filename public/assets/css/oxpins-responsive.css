@@ -1484,6 +1484,7 @@
     .main-menu__right {
         width: auto;
         float: right;
+        flex-direction: column;
     }
 
     .main-menu__wrapper-inner {
