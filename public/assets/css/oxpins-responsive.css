@@ -1349,10 +1349,7 @@
 
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .main-menu__right-top-address {
-        display: none;
-    }
-
+    
     .main-menu .mobile-nav__toggler {
         color: var(--oxpins-white);
         display: inline-block;

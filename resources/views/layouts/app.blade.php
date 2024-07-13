@@ -58,84 +58,81 @@
  <div class="page-wrapper">
 
  <header class="main-header">
- <nav class="main-menu">
-                <div class="top-ribbon">
-                    <div class="top-ribbon__left">
-                        <div class="main-menu__right-top-address">
-                            <ul class="list-unstyled main-menu__right-top-address-list">
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-phone-call"></span>
-                                    </div>
-                                    <div class="content">
-                                        <p>Helpline</p>
-                                        <h5><a href="#">{{$setting->phone}} </a>
-                                        </h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-message"></span>
-                                    </div>
-                                    <div class="content">
-                                        <p>Send email</p>
-                                        <h5><a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
-                                        </h5>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <span class="icon-location"></span>
-                                    </div>
-                                    <div class="content">
-                                        <p>Address</p>
-                                        <h5>{{$setting->address}}</h5>
-                                    </div>
-                                </li>
+    <nav class="main-menu">
+        <div class="top-ribbon">
+            <div class="top-ribbon__left">
+                <div class="main-menu__right-top-address">
+                    <ul class="list-unstyled main-menu__right-top-address-list">
+                        <li>
+                            <div class="icon">
+                                <span class="icon-phone-call"></span>
+                            </div>
+                            <div class="content">
+                                <p>Helpline</p>
+                                <h5><a href="#">{{$setting->phone}} </a></h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-message"></span>
+                            </div>
+                            <div class="content">
+                                <p>Send email</p>
+                                <h5><a href="mailto:{{$setting->email}}">{{$setting->email}}</a></h5>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <span class="icon-location"></span>
+                            </div>
+                            <div class="content">
+                                <p>Address</p>
+                                <h5>{{$setting->address}}</h5>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="top-ribbon__right-top">
+                <div class="login_btn_div">  
+                    <a href="/login" class="login_btn">Login <i class="fa fa-sign-in" aria-hidden="true"></i></a>
+                </div>
+                <div class="donation_btn_div">
+                    <a href="/donation_request" class="login_btn">Donate Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="main-menu__wrapper">
+                <div class="main-menu__left">
+                    <div class="main-menu__logo">
+                        <a href="/"><img src="/assets/images/ccs-small-logo.jpg" alt=""></a>
+                    </div>
+                </div>
+                <div class="main-menu__right">
+                    <div class="main-menu__toggler">
+                        <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <div class="main-menu__right-bottom">
+                        <div class="main-menu__main-menu-box">
+                            <ul class="main-menu__list">
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about-us">About</a></li>
+                                <li><a href="/publications">Publications</a></li>
+                                <li><a href="/membership">Membership</a></li>
+                                <li><a href="/all-events">Events</a></li>
+                                <li><a href="/all-projects">Projects</a></li>
+                                <li><a href="/our-partners">Our Partner</a></li>
+                                <li><a href="/all-gallery">Gallery</a></li>
+                                <li><a href="/contact">Contact</a></li>
                             </ul>
-                        </div>  
-                    </div>
-                    <div class="top-ribbon__right-top">
-                        <div class="login_btn_div">  
-                            <a href="/login" class="login_btn"><span class="fas fa-sign-in"></span>Login</a>
-                        </div>
-                        <div class="donation_btn_div">
-                            <a href="/donation_request" class="main-menu__btn"> <span class="fa fa-heart"></span>Donate Now</a>
                         </div>
                     </div>
                 </div>
-                <div class="main-menu__wrapper">
-                    <div class="main-menu__wrapper-inner">
-                        <div class="main-menu__left">
-                            <div class="main-menu__logo">
-                                <a href="/"><img width="80px" src="/assets/images/ccs-small-logo.jpg" alt=""></a>
-                                <h5>Cambodian Chemical Society</h5>
-                            </div>
-                           
-                        </div>
-                        <div class="main-menu__right">
-                            
-                            <div class="main-menu__right-bottom">
-                                <div class="main-menu__main-menu-box">
-                                    <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
-                                    <ul class="main-menu__list">
-                                        <li class=""><a href="/">Home</a> </li>
-                                        <li class=""><a href="/about-us">About</a></li>
-                                        <li ><a href="/publications">Publications</a></li>
-                                        <li class=""><a href="/membership">Membership</a></li>
-                                        <li class=""><a href="/all-events">Events</a></li>
-                                        <li class=""><a href="/all-projects">Projects</a></li>
-                                        <li class=""><a href="/our-partners">Our Partner</a></li>
-                                        <li class=""><a href="/all-gallery">Gallery</a></li>
-                                       <li><a href="/contact">Contact</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
+        </div>
+    </nav>
+</header>
+
+
 
      @yield('content')
      <footer class="site-footer">
@@ -211,7 +208,13 @@
             
         </footer>
  </div>  
- 
+ <script>
+    document.querySelector('.mobile-nav__toggler').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('.main-menu__list').classList.toggle('active');
+    });
+</script>
+
      <script src="/assets/vendors/jquery/jquery-3.6.0.min.js"></script>
     <script src="/assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/vendors/jarallax/jarallax.min.js"></script>

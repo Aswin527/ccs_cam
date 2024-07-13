@@ -39,7 +39,9 @@
     background-color: var(--oxpins-extra);
 }
 </style>
-
+<div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div>
+        </div>
 <section class="">
            
             <div class="container-aboutus">

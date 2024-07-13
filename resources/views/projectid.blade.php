@@ -140,7 +140,9 @@ button {
 }
 </style>
 @endsection
-
+<div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div>
+        </div>
 @section('content')
 <section>
     <div class="container">

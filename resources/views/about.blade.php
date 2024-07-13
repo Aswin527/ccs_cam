@@ -9,6 +9,10 @@
 }
 </style>
 <?php $setting = DB::table('settings')->where('id',1)->first();?>
+<div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div>
+        </div>
+
 <section class="">
             
             <div class="container-aboutus">
@@ -96,6 +100,7 @@
    </div> 
 </section>
 
-
+<script src="/assets/js/oxpins.js"></script>
+    @yield('js')
 
 @endsection

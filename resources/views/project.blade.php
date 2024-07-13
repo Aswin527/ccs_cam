@@ -17,7 +17,9 @@
     object-fit: cover;
 }
 </style>
-
+<div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div>
+        </div>
 <section class="about-section">
     <div class="container-aboutus">
         <div class="overlay"></div>
