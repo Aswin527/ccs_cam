@@ -104,8 +104,10 @@ Route::post('/enquiry/store','EnquirysController@store');
 Route::get('/lms/login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('/lms/login','Auth\LoginController@login');
 
+Route::post('/logout', [Auth\LogoutController::class, 'logout'])->name('logout');
+
 Route::group(['middleware' => 'auth'],function(){
-    Route::post('/logout','Auth\LoginController@logout');
+    
 
     //Home Routes...
     Route::get('/lms/home', 'HomeController@index')->name('home');
@@ -268,6 +270,7 @@ Route::group(['middleware' => 'auth'],function(){
              Route::post('/home/user/update/profile', 'UsersController@updateprofiles');
              Route::get('/user/organization', 'UsersController@userorganization');
              Route::get('/user/logout', 'UsersController@userlogout');
+             Route::get('/admin/logout', 'Auth\LoginController@adminlogout');
              Route::get('api/fetch-states', 'UsersController@fetchState');
              Route::post('/user/organization/update', 'UsersController@updateorganization');
              Route::get('/user/donation', 'UsersController@donations');

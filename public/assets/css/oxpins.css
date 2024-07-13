@@ -333,6 +333,64 @@ ul {
   opacity: .4;
 }
 
+.admin_input{
+
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 4rem;
+}
+
+.thm-btn-admin{
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none !important;
+  background-color: var(--oxpins-primary);
+  color: var(--oxpins-black);
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  border-radius: 30px;
+  padding: 5px 49px 15px;
+  align-items: center;
+  transition: all 0.5s linear;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  height: 4rem;
+  margin-top: 15px;
+}
+
+.thm-btn-admin:before {
+  transition-duration: 800ms;
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  content: "";
+  top: -230%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--oxpins-black);
+}
+
+.thm-btn-admin:hover {
+  color: var(--oxpins-white);
+}
+
+.thm-btn-admin:hover:before {
+  top: -40%;
+}
 
 .thm-btn {
   position: relative;

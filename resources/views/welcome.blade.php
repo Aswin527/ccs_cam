@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title','Cambodian Chemical Society')
+@section('meta_title','Cambodian Chemical Society')
 @section('content')
 <style>
 @media screen and (max-width: 767px) {

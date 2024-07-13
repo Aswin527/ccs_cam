@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('meta_title','')
+@section('meta_title','About Us')
 
 
 @section('content')

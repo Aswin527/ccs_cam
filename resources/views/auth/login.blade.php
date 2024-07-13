@@ -1,79 +1,85 @@
 @extends('layouts.app')
-@section('meta_title','Login | Best Pharma Company | Medios Laboratories')
-@section('meta_description','Best Pharma Company | Medios Laboratories')
-@section('meta_image','images/logo-2.png')
+@section('meta_title','Admin Login')
 @section('content')
-<br><br><br><br>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ url('/lms/login') }}">
+<style>
+    .container-aboutus {
+            height:200px;
+        } 
+</style>
+<section class="">
+            <!-- <div class="page-header-bg" style="background-image: url(assets/images/bg_about-us.jpg)">
+            </div> -->
+            <div class="container-aboutus">
+            <div class="overlay"></div>
+                <div class="page-header__inner">
+                    
+                    <h2>Admin Login</h2>
+                </div>
+            </div>
+        </section>
+        <section class="contact-three">
+            <div class="contact-three-shape"
+                style="background-image: url(assets/images/shapes/contact-three-shape.png);"></div>
+            <div class="container">
+                <div class="section-title text-center">
+                      
+                    @if ( Session::has('flash_message') )
+                        <div class="alert alert-{{ Session::get('flash_type') }} alert-dismissible fade show" role="alert">
+                            <b>{{ Session::get('flash_message') }}</b>
+                            
+                        </div>
+                    @endif
+                   
+                   
+                   
+                    <span class="section-title__tagline">Login Here</span>
+                
+                </div>
+                
+                <div class="contact-page__form-box">
+                    
+                    <form action="{{ url('/lms/login') }}" method="POST" >
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
+                        
+                       
+                       <div class="row" >
+                           
+                             <div class="col-xl-12">
+                                <div class="contact-form__input-box">
+                                    <input id="email" type="email" class="@error('email') is-invalid @enderror" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email" name="email">
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-</br>
-                        </div>
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                             <div class="col-xl-12">
+                                <div class="contact-form__input-box">
+                                    <input id="password" type="password" placeholder="Password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+                        
+                        
+                       
+                        <div class="row">
+                            <div class="col-xl-12">
+                                
+                                <div class="contact-form__btn-box">
+                                    <button type="submit" name="submit"class="thm-btn contact-form__btn">Login</button>
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<br>
+        </section>
 @endsection
