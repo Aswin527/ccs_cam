@@ -128,6 +128,7 @@ foreach($currency_info as $currency_details) {
 
 
 ?>
+  <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 
   <script>
     
@@ -179,9 +180,8 @@ var r_v_chart = new CanvasJS.Chart("allreceiptvoucher", {
 chart.render();
 status_chart.render();
 r_v_chart.render();
- }
+ }  
 </script>
-  <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
 
 
  <!-- start page title -->
@@ -240,9 +240,10 @@ r_v_chart.render();
                             <tbody>
                                 <?php $x=1;?>
                                 @foreach($donations as $donation_info)
+                                <?php $category = DB::table('payment_catgeory')->where('id',$donation_info->donation_type)->first();  ?>
                                 <tr id="">
                                     <td>{{$x}}</td>
-                                    <td>{{$donation_info->donation_type}}</td>
+                                    <td>@if($category){{$category->name}}@endif</td> 
                                     <td> @if($donation_info->currency ==1 )
                                                           Doller (USD)
                                                            @else
