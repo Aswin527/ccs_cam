@@ -66,7 +66,9 @@ Route::get('/member/qr_view/{member_id}', [UserController::class, 'membershow'])
 
 //Event Attendance
 Route::get('/attendance/mark/{event_id}', [AttendanceController::class, 'show'])->name('attendance.mark');
-Route::post('/attendance/mark/{event_id}', [AttendanceController::class, 'store'])->name('attendance.mark.store');
+
+Route::post('/attendance/store/{event_id}', [AttendanceController::class, 'store'])->name('attendance.store');
+
 
 Route::get('/events/{id}/join', [EventController::class, 'show'])->name('events.show');
 Route::post('/events/{id}/join', [EventController::class, 'join'])->name('events.join');

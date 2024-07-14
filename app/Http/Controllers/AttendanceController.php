@@ -32,12 +32,14 @@ class AttendanceController extends Controller
         // Set fields based on user type
         if ($validatedData['user_type'] == 'member') {
             $attendance->member_id = $request->input('member_id');
-            $attendance->remarks = $request->input('member_remarks');
+            $attendance->food_preference = $request->input('food_preference');
+            $attendance->remarks = $request->input('remarks');
         } elseif ($validatedData['user_type'] == 'guest') {
             $attendance->guest_name = $request->input('guest_name');
             $attendance->guest_phone = $request->input('guest_phone');
+            $attendance->food_preference = $request->input('food_preference');
             $attendance->guest_email = $request->input('guest_email');
-            $attendance->remarks = $request->input('guest_remarks');
+            $attendance->remarks = $request->input('remarks');
         }
 
         // Save attendance record
